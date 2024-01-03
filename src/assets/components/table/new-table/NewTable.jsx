@@ -1,8 +1,11 @@
 const NewTable = () => {
+
+
+
 	return (
 		<>
 			<h1>
-				hi mom
+				hi mom <button>+</button>
 			</h1>
 		</>
 	)
