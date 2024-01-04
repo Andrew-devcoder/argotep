@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react"
 import { CatFat } from "../../room/cat-fact/CatFact"
+import { TableRows } from "../table-rows/TableRows"
 
-const NewTable = () => {
+const NewTable = ({ orderNumber }) => {
 	const [addNewRow, setAddNewRow] = useState(false)
 
 	const handleAddNewRow = () => {
 		setAddNewRow(true)
+		console.log('click for handle')
 	}
 
 	useEffect(() => {
 		if (addNewRow) {
 			setAddNewRow(false)
+			console.log('click for useEffect')
 		}
 	}, [addNewRow])
 
 	return (
 		<>
-			<h1>
+			<div>
 				hi mom <button onClick={handleAddNewRow}>+</button>
-				<CatFat addNewRow={addNewRow} />
-			</h1>
+			</div>
+
+			<TableRows addNewRow={addNewRow} orderNumber={orderNumber} />
 		</>
 	)
 }
