@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
 import { Home } from './page/home/Home.jsx'
 
 import './assets/sass/style.scss'

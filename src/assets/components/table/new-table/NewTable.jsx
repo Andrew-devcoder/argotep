@@ -1,3 +1,5 @@
+import { CatFat } from "../../room/cat-fact/CatFact"
+
 const NewTable = () => {
 
 
@@ -6,6 +8,7 @@ const NewTable = () => {
 		<>
 			<h1>
 				hi mom <button>+</button>
+				<CatFat />
 			</h1>
 		</>
 	)
