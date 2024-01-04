@@ -2,26 +2,30 @@ import { useState } from "react"
 import { getCatFact } from "../../../../services/cats/catfact.ninja"
 import { useEffect } from "react"
 
-const CatFat = () => {
-	const [catFact, setCatFat] = useState('')
+const CatFat = ({ addNewRow }) => {
+
+	const [listRows, setListRows] = useState([])
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const fact = await getCatFact();
-				setCatFat(fact);
+				const newRow = <div key={fact}>{fact}</div>;
+				setListRows((prevList) => [...prevList, newRow]);
 			} catch (error) {
-				console.error('get fact in component error:', error)
+				console.error('get fact in component error:', error);
 			}
-		}
+		};
 
-		fetchData()
-	}, [])
+		if (addNewRow) {
+			fetchData();
+		}
+	}, [addNewRow]);
 
 	return (
 		<>
 			<div>
-				<p>{catFact}</p>
+				<p>{listRows.map((row) => row)}</p>
 			</div>
 		</>
 	)
