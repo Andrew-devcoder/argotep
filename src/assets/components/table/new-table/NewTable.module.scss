@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    padding: 5px 15px;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: rgb(43, 43, 43);
+    border-radius: 8px;
+
+    & > button {
+        background-color: transparent;
+        margin-left: auto;
+
+        &:hover {
+            border-color: transparent;
+        }
+        &:focus,
+        :focus-visible {
+            outline: none;
+        }
+    }
+}
