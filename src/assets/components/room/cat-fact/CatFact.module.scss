@@ -1,0 +1,16 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 10px;
+
+    & input[type="text"] {
+        background-color: transparent;
+        border-color: transparent;
+        padding: 3px;
+    }
+
+    & input[type="date"] {
+        min-width: max-content;
+    }
+}
