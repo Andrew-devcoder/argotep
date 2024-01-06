@@ -8,6 +8,11 @@
         background-color: transparent;
         border-color: transparent;
         padding: 3px;
+        max-width: 100px;
+    }
+
+    & input[type="number"] {
+        min-width: 50px;
     }
 
     & input[type="date"] {
