@@ -19,6 +19,7 @@ const CatAge = () => {
 			<input
 				type="number"
 				step="0.1"
+				placeholder='age'
 				value={value}
 				onChange={handleInputChange}
 				className={style.inputAge}

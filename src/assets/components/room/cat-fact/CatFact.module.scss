@@ -7,11 +7,53 @@
     & input[type="text"] {
         background-color: transparent;
         border-color: transparent;
-        padding: 3px;
+        border-radius: 2px;
+        padding: 4px;
         max-width: 100px;
+
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: rgb(59, 59, 59);
+            border-color: -internal-light-dark(
+                rgb(118, 118, 118),
+                rgb(133, 133, 133)
+            );
+        }
+    }
+
+    & select {
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 2px;
+        padding: 4px;
+
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: rgb(59, 59, 59);
+            border-color: -internal-light-dark(
+                rgb(118, 118, 118),
+                rgb(133, 133, 133)
+            );
+        }
     }
 
     & input[type="date"] {
         min-width: max-content;
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 2px;
+        padding: 4px;
+
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: rgb(59, 59, 59);
+            border-color: -internal-light-dark(
+                rgb(118, 118, 118),
+                rgb(133, 133, 133)
+            );
+        }
     }
 }
