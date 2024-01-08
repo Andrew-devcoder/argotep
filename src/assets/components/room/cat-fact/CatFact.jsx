@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { getCatFact } from "../../../../services/cats/catfact.ninja"
 import { CatAge } from "../cat-age/CatAge"
+import { CatBreed } from "../cat-breed/CatBreed"
 
 import style from './CatFact.module.scss'
 
@@ -15,13 +16,8 @@ const CatFat = ({ addNewRow, currentOrderNumber }) => {
 				const fact = await getCatFact();
 				const newRow = <div key={fact} className={style.row}>
 					{currentOrderNumber}.
-					<input type="text" placeholder="write name" />
-					<select>
-						<option value="мейнкун">мейнкун</option>
-						<option value="сіамська">сіамська</option>
-						<option value="сфінкс">сфінкс</option>
-						<option value="бірманка">бірманка</option>
-					</select>
+					<input type="text" placeholder="write name" maxLength="20" />
+					<CatBreed />
 					<CatAge />
 					<input type="date" />
 					{fact}

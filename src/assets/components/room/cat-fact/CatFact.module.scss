@@ -4,7 +4,8 @@
     align-items: start;
     gap: 10px;
 
-    & input[type="text"] {
+    & input[type="text"],
+    input[type="date"] {
         background-color: transparent;
         border-color: transparent;
         border-radius: 2px;
@@ -22,38 +23,7 @@
         }
     }
 
-    & select {
-        background-color: transparent;
-        border-color: transparent;
-        border-radius: 2px;
-        padding: 4px;
-
-        transition: all 0.4s ease;
-
-        &:hover {
-            background-color: rgb(59, 59, 59);
-            border-color: -internal-light-dark(
-                rgb(118, 118, 118),
-                rgb(133, 133, 133)
-            );
-        }
-    }
-
     & input[type="date"] {
         min-width: max-content;
-        background-color: transparent;
-        border-color: transparent;
-        border-radius: 2px;
-        padding: 4px;
-
-        transition: all 0.4s ease;
-
-        &:hover {
-            background-color: rgb(59, 59, 59);
-            border-color: -internal-light-dark(
-                rgb(118, 118, 118),
-                rgb(133, 133, 133)
-            );
-        }
     }
 }
