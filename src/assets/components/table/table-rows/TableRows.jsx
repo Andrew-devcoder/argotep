@@ -3,7 +3,7 @@ import { CatFat } from "../../room/cat-fact/CatFact"
 
 import style from './TableRows.module.scss'
 
-const TableRows = ({ addNewRow }) => {
+const TableRows = ({ addNewRow, isTodayChecked }) => {
 	const [currentOrderNumber, setCurrentOrderNumber] = useState(1);
 
 	useEffect(() => {
@@ -17,7 +17,7 @@ const TableRows = ({ addNewRow }) => {
 	return (
 		<>
 			<div className={style.wrapper}>
-				<CatFat addNewRow={addNewRow} currentOrderNumber={currentOrderNumber} />
+				<CatFat addNewRow={addNewRow} currentOrderNumber={currentOrderNumber} isTodayChecked={isTodayChecked} />
 			</div>
 		</>
 	)

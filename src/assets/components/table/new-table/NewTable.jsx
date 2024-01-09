@@ -4,7 +4,7 @@ import { TableRows } from "../table-rows/TableRows"
 
 import style from './NewTable.module.scss'
 
-const NewTable = ({ orderNumber }) => {
+const NewTable = ({ orderNumber, isTodayChecked }) => {
 	const [addNewRow, setAddNewRow] = useState(false)
 
 	const handleAddNewRow = () => {
@@ -25,7 +25,7 @@ const NewTable = ({ orderNumber }) => {
 				<h2>hi mom </h2><button onClick={handleAddNewRow}>+</button>
 			</header>
 
-			<TableRows addNewRow={addNewRow} orderNumber={orderNumber} />
+			<TableRows addNewRow={addNewRow} orderNumber={orderNumber} isTodayChecked={isTodayChecked} />
 		</>
 	)
 }

@@ -4,14 +4,14 @@ import { NewTable } from "../new-table/NewTable"
 import style from './TableList.module.scss'
 
 
-const TableList = ({ addNewTable }) => {
+const TableList = ({ addNewTable, isTodayChecked }) => {
 
 	const [tableList, setTableList] = useState([]);
 	const [addTable, setAddTable] = useState(1);
 
 	useEffect(() => {
 		if (addNewTable) {
-			const newItem = <NewTable key={addTable} orderNumber={addTable} />;
+			const newItem = <NewTable key={addTable} orderNumber={addTable} isTodayChecked={isTodayChecked} />;
 			setAddTable(addTable + 1);
 			setTableList([...tableList, newItem]);
 		}

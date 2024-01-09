@@ -5,10 +5,16 @@ import style from './Header.module.scss'
 
 const Header = () => {
 	const [addNewTable, setAddNewTable] = useState(false);
+	const [isTodayChecked, setTodayChecked] = useState(false);
 
 	const handleNewTable = () => {
 		setAddNewTable(true);
 	};
+
+	const handleCheckboxIsToday = () => {
+		setTodayChecked(!isTodayChecked)
+		console.log(isTodayChecked)
+	}
 
 	useEffect(() => {
 		if (addNewTable) {
@@ -23,7 +29,7 @@ const Header = () => {
 					<button onClick={handleNewTable}>new block</button>
 
 					<div>
-						<input type='checkbox' id='today' name='today'></input>
+						<input type='checkbox' id='today' name='today' checked={isTodayChecked} onChange={handleCheckboxIsToday}></input>
 						<label htmlFor="today">today</label>
 					</div>
 
@@ -34,7 +40,7 @@ const Header = () => {
 				</div>
 
 
-				<TableList addNewTable={addNewTable} />
+				<TableList addNewTable={addNewTable} isTodayChecked={isTodayChecked} />
 			</div>
 		</>
 	)

@@ -3,10 +3,13 @@ import { useEffect } from "react"
 import { getCatFact } from "../../../../services/cats/catfact.ninja"
 import { CatAge } from "../cat-age/CatAge"
 import { CatBreed } from "../cat-breed/CatBreed"
+import { CateDate } from "../cat-date/CatDate"
+
+
 
 import style from './CatFact.module.scss'
 
-const CatFat = ({ addNewRow, currentOrderNumber }) => {
+const CatFat = ({ addNewRow, currentOrderNumber, isTodayChecked }) => {
 
 	const [listRows, setListRows] = useState([])
 
@@ -19,7 +22,15 @@ const CatFat = ({ addNewRow, currentOrderNumber }) => {
 					<input type="text" placeholder="write name" maxLength="20" />
 					<CatBreed />
 					<CatAge />
-					<input type="date" />
+					{/* <input
+						type="date"
+						value={selectedDate}
+						onChange={(e) => setSelectedDate(e.target.value)}
+						onBlur={(e) => setSelectedDate(e.target.value)}
+					/> */}
+
+					<CateDate />
+
 					{fact}
 				</div>;
 				setListRows((prevList) => [...prevList, newRow]);
@@ -31,12 +42,27 @@ const CatFat = ({ addNewRow, currentOrderNumber }) => {
 		if (addNewRow) {
 			fetchData();
 		}
-	}, [addNewRow, currentOrderNumber]);
+
+	}, [addNewRow, currentOrderNumber,]);
+
+	useEffect(() => {
+		if (isTodayChecked) {
+			const currentDate = new Date();
+			listRows.map((row) => console.log(row.date, currentDate))
+		}
+	}, [isTodayChecked, listRows]);
+
+	const checkDate = () => {
+		console.log('list', listRows[0].props.children[5]);
+	};
+
+
 
 
 	return (
 		<>
 			{listRows.map((row) => row)}
+			<button onClick={checkDate}>cheack date in row</button>
 		</>
 	)
 }
