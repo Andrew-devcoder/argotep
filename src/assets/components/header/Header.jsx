@@ -5,6 +5,18 @@ import style from './Header.module.scss'
 
 const Header = ({ setCount }) => {
 
+	const [checkToday, setCheckToday] = useState(null);
+
+	const toggleEvent = () => {
+		if (checkToday) {
+			setCheckToday(null);
+			console.log(checkToday)
+		} else {
+			setCheckToday(new Date());
+			console.log(checkToday)
+		}
+	};
+
 	return (
 		<>
 			<div className={style.wrapper}>
@@ -13,7 +25,14 @@ const Header = ({ setCount }) => {
 					<button onClick={() => setCount(count => count + 1)}>new block</button>
 
 					<div>
-						<input type='checkbox' id='today' name='today' ></input>
+						<input
+							type='checkbox'
+							id='today'
+							name='today'
+							checked={checkToday == null}
+							onChange={toggleEvent}
+						>
+						</input>
 						<label htmlFor="today">today</label>
 					</div>
 
