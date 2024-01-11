@@ -10,7 +10,6 @@ const TableRows = ({ item }) => {
 
 	return (
 		<>
-
 			<div className={style.wrapper}>
 				{item.id}.
 				<input type="text" placeholder="write name" maxLength="20" />
