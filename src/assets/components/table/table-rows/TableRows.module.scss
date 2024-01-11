@@ -1,7 +1,8 @@
 .wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: start;
     padding: 5px 0 20px 10px;
 
     & > div {
@@ -14,5 +15,28 @@
         // &:nth-child(odd) {
         //     background-color: rgb(43, 43, 43);
         // }
+    }
+
+    & input[type="text"],
+    input[type="date"] {
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 2px;
+        padding: 4px;
+        max-width: 100px;
+
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: rgb(59, 59, 59);
+            border-color: -internal-light-dark(
+                rgb(118, 118, 118),
+                rgb(133, 133, 133)
+            );
+        }
+    }
+
+    & input[type="date"] {
+        min-width: max-content;
     }
 }

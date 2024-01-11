@@ -1,31 +1,28 @@
 import { useEffect, useState } from "react"
-import { CatFat } from "../../room/cat-fact/CatFact"
 import { TableRows } from "../table-rows/TableRows"
 
 import style from './NewTable.module.scss'
 
-const NewTable = ({ orderNumber, isTodayChecked }) => {
-	const [addNewRow, setAddNewRow] = useState(false)
-
-	const handleAddNewRow = () => {
-		setAddNewRow(true)
-		console.log('click for handle')
-	}
+const NewTable = ({ list }) => {
+	const [newRows, setNewRows] = useState([])
+	const [count, setCount] = useState(0)
 
 	useEffect(() => {
-		if (addNewRow) {
-			setAddNewRow(false)
-			console.log('click for useEffect')
-		}
-	}, [addNewRow])
+		const newRow = { id: newRows.length + 1 };
+		setNewRows(prevRows => [...prevRows, newRow])
+		console.log(count)
+	}, [count])
 
 	return (
 		<>
 			<header className={style.header}>
-				<h2>hi mom </h2><button onClick={handleAddNewRow}>+</button>
+				<h2>hi mom {list.id} </h2>
+				<button onClick={() => setCount(count + 1)}>+</button>
 			</header>
 
-			<TableRows addNewRow={addNewRow} orderNumber={orderNumber} isTodayChecked={isTodayChecked} />
+			{newRows.map((item) => (
+				<TableRows item={item} key={item.id} />
+			))}
 		</>
 	)
 }

@@ -3,24 +3,26 @@ import { NewTable } from "../new-table/NewTable"
 
 import style from './TableList.module.scss'
 
-
-const TableList = ({ addNewTable, isTodayChecked }) => {
-
-	const [tableList, setTableList] = useState([]);
-	const [addTable, setAddTable] = useState(1);
+const TableList = ({ count }) => {
+	const [blocks, setBlocks] = useState([]);
 
 	useEffect(() => {
-		if (addNewTable) {
-			const newItem = <NewTable key={addTable} orderNumber={addTable} isTodayChecked={isTodayChecked} />;
-			setAddTable(addTable + 1);
-			setTableList([...tableList, newItem]);
+		if (count) {
+			setBlocks((prevBlocks) => {
+				const newBlock = { id: prevBlocks.length + 1 };
+				return [...prevBlocks, newBlock];
+			});
 		}
-	}, [addNewTable, addTable, tableList]);
+	}, [count])
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				{tableList.map((table) => table)}
+				{blocks.map((list, index) => (
+					<div key={index}>
+						<NewTable list={list} />
+					</div>
+				))}
 			</div>
 		</>
 	)

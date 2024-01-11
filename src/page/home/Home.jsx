@@ -16,7 +16,6 @@ const Home = () => {
 		<>
 			<div className={`${style.layout} ${sidebarOpen ? style.sidebarOpen : ''}`}>
 				<Sidebar onToggleSidebar={toggleSidebarStyles} />
-
 				<CentralArea />
 			</div>
 		</>

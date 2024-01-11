@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 import { CatFat } from "../../room/cat-fact/CatFact"
+import { CatBreed } from "../../room/cat-breed/CatBreed";
+import { CatAge } from "../../room/cat-age/CatAge";
+import { CateDate } from "../../room/cat-date/CatDate";
 
 import style from './TableRows.module.scss'
 
-const TableRows = ({ addNewRow, isTodayChecked }) => {
-	const [currentOrderNumber, setCurrentOrderNumber] = useState(1);
-
-	useEffect(() => {
-		setCurrentOrderNumber((prevOrderNumber) => {
-			return addNewRow ? prevOrderNumber + 1 : prevOrderNumber;
-		});
-		console.log(currentOrderNumber);
-	}, [addNewRow, currentOrderNumber]);
-
+const TableRows = ({ item }) => {
 
 	return (
 		<>
+
 			<div className={style.wrapper}>
-				<CatFat addNewRow={addNewRow} currentOrderNumber={currentOrderNumber} isTodayChecked={isTodayChecked} />
+				{item.id}.
+				<input type="text" placeholder="write name" maxLength="20" />
+				<CatBreed />
+				<CatAge />
+				<CateDate />
+				<CatFat item={item} />
 			</div>
 		</>
 	)
