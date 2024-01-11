@@ -2,8 +2,8 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const CateDate = () => {
-	const [selectedDate, setSelectedDate] = useState(null)
+const CateDate = ({ selectedDate, setSelectedDate }) => {
+	// const [selectedDate, setSelectedDate] = useState(new Date())
 
 	return (
 		<>

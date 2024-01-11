@@ -7,7 +7,11 @@ import { CateDate } from "../../room/cat-date/CatDate";
 import style from './TableRows.module.scss'
 
 const TableRows = ({ item }) => {
+	const [selectedDate, setSelectedDate] = useState(new Date())
 
+	const test = () => {
+		console.log('click:', item.id, selectedDate)
+	}
 	return (
 		<>
 			<div className={style.wrapper}>
@@ -15,8 +19,10 @@ const TableRows = ({ item }) => {
 				<input type="text" placeholder="write name" maxLength="20" />
 				<CatBreed />
 				<CatAge />
-				<CateDate />
+				<CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
 				<CatFat item={item} />
+
+				<button onClick={test}>check</button>
 			</div>
 		</>
 	)
