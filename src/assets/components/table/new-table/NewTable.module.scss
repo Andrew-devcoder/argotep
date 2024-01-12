@@ -22,3 +22,12 @@
         }
     }
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+
+    & > p {
+        margin: 0;
+    }
+}

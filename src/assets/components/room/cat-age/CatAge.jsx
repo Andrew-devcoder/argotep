@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import style from './CatAge.module.scss'
 
-const CatAge = () => {
+const CatAge = ({ row }) => {
 
 	const [value, setValue] = useState('');
 

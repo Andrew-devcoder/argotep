@@ -4,30 +4,32 @@ import { getCatFact } from "../../../../services/cats/catfact.ninja"
 
 import style from './CatFact.module.scss'
 
-const CatFat = ({ item }) => {
+const CatFact = ({ rows }) => {
 	const [fact, setFact] = useState('')
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const getFact = await getCatFact();
-				console.log(getFact)
 				setFact(getFact)
 			} catch (error) {
 				console.error('get fact in component error:', error);
+				throw error;
 			}
 		};
 
-		if (item) {
+		if (rows) {
 			fetchData();
 		}
-	}, [item]);
+	}, [rows]);
 
 	return (
 		<>
-			{fact}
+			<p>
+				{fact}
+			</p>
 		</>
 	)
 }
 
-export { CatFat }
+export { CatFact }

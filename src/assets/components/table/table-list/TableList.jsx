@@ -19,9 +19,7 @@ const TableList = ({ count }) => {
 		<>
 			<div className={style.wrapper}>
 				{blocks.map((list, index) => (
-					<div key={index}>
-						<NewTable list={list} />
-					</div>
+					<NewTable list={list} key={index} />
 				))}
 			</div>
 		</>

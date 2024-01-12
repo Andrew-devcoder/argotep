@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { TableRows } from "../table-rows/TableRows"
 
 import style from './NewTable.module.scss'
+import { CheckboxContext } from "../../../../context/checkbox-context"
 
 const NewTable = ({ list }) => {
-	const [newRows, setNewRows] = useState([])
-	const [count, setCount] = useState(0)
 
-	useEffect(() => {
-		const newRow = { id: newRows.length + 1 };
-		setNewRows(prevRows => [...prevRows, newRow])
-		console.log(count)
-	}, [count])
+	const [count, setCount] = useState(null)
 
 	return (
 		<>
@@ -20,9 +15,7 @@ const NewTable = ({ list }) => {
 				<button onClick={() => setCount(count + 1)}>+</button>
 			</header>
 
-			{newRows.map((item) => (
-				<TableRows item={item} key={item.id} />
-			))}
+			<TableRows count={count} />
 		</>
 	)
 }

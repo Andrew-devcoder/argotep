@@ -1,21 +1,24 @@
-import { useEffect, useState } from 'react'
-import { TableList } from '../table/table-list/TableList'
+import { useContext, useEffect, useState } from 'react'
+import { CheckboxContext } from '../../../context/checkbox-context';
 
 import style from './Header.module.scss'
 
 const Header = ({ setCount }) => {
 
-	const [checkToday, setCheckToday] = useState(null);
+	const { today, setToday } = useContext(CheckboxContext)
 
-	const toggleEvent = () => {
-		if (checkToday) {
-			setCheckToday(null);
-			console.log(checkToday)
+	useEffect(() => {
+		if (today) {
+			console.log(new Date().toLocaleDateString())
 		} else {
-			setCheckToday(new Date());
-			console.log(checkToday)
+			console.log(today)
 		}
-	};
+
+	}, [today])
+
+	const handleChangeCheckboxToday = () => {
+		setToday(!today)
+	}
 
 	return (
 		<>
@@ -29,8 +32,8 @@ const Header = ({ setCount }) => {
 							type='checkbox'
 							id='today'
 							name='today'
-							checked={checkToday == null}
-							onChange={toggleEvent}
+							checked={today}
+							onChange={handleChangeCheckboxToday}
 						>
 						</input>
 						<label htmlFor="today">today</label>

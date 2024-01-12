@@ -3,6 +3,7 @@ import { Sidebar } from '../../assets/components/sidebar/Sidebar'
 import { CentralArea } from '../../assets/components/central-area/CentralArea';
 
 import style from './Home.module.scss'
+import { CheckboxContextProvider } from '../../context/checkbox-context';
 
 const Home = () => {
 
@@ -14,10 +15,12 @@ const Home = () => {
 	};
 	return (
 		<>
-			<div className={`${style.layout} ${sidebarOpen ? style.sidebarOpen : ''}`}>
-				<Sidebar onToggleSidebar={toggleSidebarStyles} />
-				<CentralArea />
-			</div>
+			<CheckboxContextProvider>
+				<div className={`${style.layout} ${sidebarOpen ? style.sidebarOpen : ''}`}>
+					<Sidebar onToggleSidebar={toggleSidebarStyles} />
+					<CentralArea />
+				</div>
+			</CheckboxContextProvider>
 		</>
 	)
 }

@@ -1,28 +1,44 @@
-import { useEffect, useState } from "react";
-import { CatFat } from "../../room/cat-fact/CatFact"
-import { CatBreed } from "../../room/cat-breed/CatBreed";
-import { CatAge } from "../../room/cat-age/CatAge";
-import { CateDate } from "../../room/cat-date/CatDate";
+import { useContext, useEffect, useState } from "react";
+import { CheckboxContext } from "../../../../context/checkbox-context";
+import { NewRow } from "../new-row/NewRow";
 
 import style from './TableRows.module.scss'
 
-const TableRows = ({ item }) => {
-	const [selectedDate, setSelectedDate] = useState(new Date())
+const TableRows = ({ count }) => {
+	const [blocks, setBlocks] = useState([]);
 
-	const test = () => {
-		console.log('click:', item.id, selectedDate)
+	useEffect(() => {
+		if (count) {
+			setBlocks((prevBlocks) => {
+				const newBlock = { id: prevBlocks.length + 1 };
+				return [...prevBlocks, newBlock];
+			});
+		}
+	}, [count])
+
+	const clearRow = {
+		name: '',
+		select: '',
+		age: '',
 	}
+
+	const [row, setRow] = useState(clearRow)
+
+	const createRow = (e) => {
+		e.preventDefault()
+
+		setRowList(prev => [{ id: prev.length + 1, ...row, }, ...prev,])
+
+		setRow(clearRow)
+	}
+
+
 	return (
 		<>
 			<div className={style.wrapper}>
-				{item.id}.
-				<input type="text" placeholder="write name" maxLength="20" />
-				<CatBreed />
-				<CatAge />
-				<CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-				<CatFat item={item} />
-
-				<button onClick={test}>check</button>
+				{blocks.map((rows, index) => (
+					<NewRow rows={rows} key={index} />
+				))}
 			</div>
 		</>
 	)
