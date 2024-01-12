@@ -2,6 +2,8 @@
     display: block;
 
     & p {
-        display: inline;
+        display: inline-block;
+        min-width: 26px;
+        margin: 0;
     }
 }
