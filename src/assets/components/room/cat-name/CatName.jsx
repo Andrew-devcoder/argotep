@@ -1,13 +1,18 @@
 import style from './CatName.module.scss'
 
-const CatName = ({ row, setRow }) => {
+const CatName = ({ handleChange, state }) => {
+
+
 	return (
 		<>
 			<input
 				className={style.inputName}
 				placeholder="Name"
-				onChange={e => setRow(prev => ({ ...prev, name: e.target.value }))}
-				value={''}
+				onChange={(e) => {
+					handleChange(e, 'name')
+				}
+				}
+				value={state.name}
 			/>
 		</>
 	)

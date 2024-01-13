@@ -1,6 +1,6 @@
 import style from './CatBreed.module.scss'
 
-const CatBreed = () => {
+const CatBreed = ({ handleChange, state }) => {
 
 	const listBreedCats = [
 		{ breed: "мейкун" },
@@ -11,7 +11,12 @@ const CatBreed = () => {
 
 	return (
 		<>
-			<select className={style.breed}>
+			<select className={style.breed}
+				onChange={(e) => {
+					handleChange(e, 'select');
+				}}
+				value={state.select}
+			>
 				{listBreedCats.map((item, index) => (
 					<option key={index} value={item.breed}>{item.breed}</option>
 				))}

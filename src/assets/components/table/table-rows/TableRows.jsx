@@ -13,10 +13,14 @@ const TableRows = ({ count }) => {
 				const newBlock = { id: prevBlocks.length + 1 };
 				return [...prevBlocks, newBlock];
 			});
+			console.log(blocks)
 		}
 	}, [count])
 
+
+
 	const clearRow = {
+		id: '',
 		name: '',
 		select: '',
 		age: '',
@@ -24,20 +28,20 @@ const TableRows = ({ count }) => {
 
 	const [row, setRow] = useState(clearRow)
 
-	const createRow = (e) => {
-		e.preventDefault()
+	// const createRow = (e) => {
+	// 	e.preventDefault()
 
-		setRowList(prev => [{ id: prev.length + 1, ...row, }, ...prev,])
+	// 	setRowList(prev => [{ id: prev.length + 1, ...row, }, ...prev,])
 
-		setRow(clearRow)
-	}
+	// 	setRow(clearRow)
+	// }
 
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				{blocks.map((rows, index) => (
-					<NewRow rows={rows} key={index} />
+				{blocks.map((row, index) => (
+					<NewRow row={row} key={index} />
 				))}
 			</div>
 		</>

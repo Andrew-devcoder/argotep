@@ -4,7 +4,7 @@ import { getCatFact } from "../../../../services/cats/catfact.ninja"
 
 import style from './CatFact.module.scss'
 
-const CatFact = ({ rows }) => {
+const CatFact = ({ row, handleChange, state }) => {
 	const [fact, setFact] = useState('')
 
 	useEffect(() => {
@@ -12,16 +12,17 @@ const CatFact = ({ rows }) => {
 			try {
 				const getFact = await getCatFact();
 				setFact(getFact)
+				handleChange(getFact, 'fact');
 			} catch (error) {
 				console.error('get fact in component error:', error);
 				throw error;
 			}
 		};
 
-		if (rows) {
+		if (row) {
 			fetchData();
 		}
-	}, [rows]);
+	}, [row]);
 
 	return (
 		<>
