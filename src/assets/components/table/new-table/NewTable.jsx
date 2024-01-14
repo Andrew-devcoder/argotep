@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { TableRows } from "../table-rows/TableRows"
+import { RowList } from "../../row/row-list/RowList"
 
 import style from './NewTable.module.scss'
 import { CheckboxContext } from "../../../../context/checkbox-context"
@@ -15,7 +15,7 @@ const NewTable = ({ list }) => {
 				<button onClick={() => setCount(count + 1)}>+</button>
 			</header>
 
-			<TableRows count={count} />
+			<RowList count={count} />
 		</>
 	)
 }

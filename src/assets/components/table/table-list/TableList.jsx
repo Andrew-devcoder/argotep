@@ -15,6 +15,7 @@ const TableList = ({ count }) => {
 		}
 	}, [count])
 
+
 	return (
 		<>
 			<div className={style.wrapper}>

@@ -11,7 +11,7 @@ const Header = ({ setCount }) => {
 		if (today) {
 			console.log(new Date().toLocaleDateString())
 		} else {
-			console.log(today)
+			console.log('checkbox today:', today)
 		}
 
 	}, [today])

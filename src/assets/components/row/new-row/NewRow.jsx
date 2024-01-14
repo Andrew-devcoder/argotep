@@ -1,11 +1,14 @@
 import { useState } from "react"
-import { CatAge } from "../../room/cat-age/CatAge"
+import { CatName } from "../../room/cat-name/CatName"
 import { CatBreed } from "../../room/cat-breed/CatBreed"
+import { CatAge } from "../../room/cat-age/CatAge"
 import { CateDate } from "../../room/cat-date/CatDate"
 import { CatFact } from "../../room/cat-fact/CatFact"
-import { CatName } from "../../room/cat-name/CatName"
+
+import Data from '../../../../database/database.json';
 
 import style from './NewRow.module.scss'
+import { useEffect } from "react"
 
 const NewRow = ({ row }) => {
 
@@ -15,9 +18,34 @@ const NewRow = ({ row }) => {
 		name: '',
 		select: '',
 		age: '',
-		date: '',
+		date: selectedDate.toLocaleDateString(),
 		fact: '',
 	});
+
+	const [dataTest, setDataTest] = useState([])
+
+	const testChangeDate = () => {
+		const updateData = Data.map((item, index) => {
+			const count = item.id = index + 1
+			item.title = 'new title ' + count
+			item.rows.map((row, index) => {
+				const count = index + 1
+				row.name = 'fck ' + count
+				return { ...row }
+			})
+			return { ...item };
+		})
+		setDataTest(updateData)
+	}
+
+	useEffect(() => {
+		testChangeDate()
+	}, [row])
+
+	useEffect(() => {
+		console.log(dataTest);
+	}, [dataTest]);
+
 
 	const handleChange = (e, field) => {
 		if (field === 'fact') {
@@ -42,6 +70,7 @@ const NewRow = ({ row }) => {
 		console.log(state)
 	}
 
+
 	return (
 		<>
 			<div className={style.wrapper}>
@@ -50,8 +79,9 @@ const NewRow = ({ row }) => {
 				<CatBreed handleChange={handleChange} state={state} />
 				<CatAge handleChange={handleChange} state={state} />
 				<CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} />
-				<CatFact row={row} handleChange={handleChange} state={state} />
+				<CatFact row={row} handleChange={handleChange} />
 				<button onClick={checkState}>check state</button>
+				<button >delete</button>
 			</div>
 		</>
 	)
