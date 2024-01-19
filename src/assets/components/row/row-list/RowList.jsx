@@ -9,13 +9,19 @@ const RowList = ({ addNewRow, setUpdateRowsList }) => {
 
 	useEffect(() => {
 		if (addNewRow) {
-			setRows((prevRows) => [
-				...prevRows,
-				{ rows: [addNewRow] },
-			]);
-			setUpdateRowsList(rows)
+			// setRows((prevRows) => [
+			// 	...prevRows,
+			// 	{ rows: [addNewRow] },
+			// ]);
+			// setUpdateRowsList(rows)
+			setRows((prevRows) => {
+				const newRows = [...prevRows, { rows: [addNewRow] }];
+				setUpdateRowsList(newRows);
+				return newRows;
+			});
+
 		}
-	}, [addNewRow]);
+	}, [addNewRow, setUpdateRowsList]);
 
 	useEffect(() => {
 		console.log(rows)

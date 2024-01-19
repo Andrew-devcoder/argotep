@@ -3,7 +3,6 @@ import { RowList } from "../../row/row-list/RowList"
 
 import style from './NewTable.module.scss'
 import { CheckboxContext } from "../../../../context/checkbox-context"
-import { endOfISOWeek } from "date-fns"
 
 const NewTable = ({ table, setRowslist }) => {
 
@@ -15,7 +14,7 @@ const NewTable = ({ table, setRowslist }) => {
 
 	useEffect(() => {
 		setRowslist(upDateRowsList)
-	}, [])
+	}, [setRowslist, upDateRowsList])
 
 	useEffect(() => {
 		console.log(table)
@@ -29,7 +28,7 @@ const NewTable = ({ table, setRowslist }) => {
 				<button onClick={() => setCount(count + 1)}>+</button>
 			</header>
 
-			<RowList addNewRow={count} setUpDateRowsList={upDateRowsList} />
+			<RowList addNewRow={count} upDateRowsList={setUpDateRowsList} />
 		</>
 	)
 }
