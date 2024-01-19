@@ -11,13 +11,33 @@ app.use(cors());
 // Парсер JSON для обробки POST-даних
 app.use(bodyParser.json());
 
+const readDataFromFile = async () => {
+    try {
+        const data = await fs.readFile("data.json", "utf-8");
+        return JSON.parse(data);
+    } catch (error) {
+        // Якщо файл не існує або сталася інша помилка, повертаємо пустий масив
+        return [];
+    }
+};
+
+const writeDataToFile = async (data) => {
+    await fs.writeFile("data.json", JSON.stringify(data, null, 2));
+};
+
 // запит
 app.post("/saveData", async (req, res) => {
     try {
-        const data = req.body;
+        const newData = req.body;
 
-        // Збереження даних у файл
-        await fs.writeFile("data.json", JSON.stringify(data));
+        // Зчитування існуючих даних з файлу
+        const existingData = await readDataFromFile();
+
+        // Додавання нових даних до існуючого масиву
+        const updatedData = [...existingData, newData];
+
+        // Збереження оновлених даних у файл
+        await writeDataToFile(updatedData);
 
         res.status(200).json({
             success: true,

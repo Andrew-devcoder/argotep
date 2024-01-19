@@ -3,7 +3,7 @@ import { CheckboxContext } from '../../../context/checkbox-context';
 
 import style from './Header.module.scss'
 
-const Header = ({ setCount }) => {
+const Header = ({ handleAddNewTable }) => {
 
 	const { today, setToday } = useContext(CheckboxContext)
 
@@ -25,7 +25,7 @@ const Header = ({ setCount }) => {
 			<div className={style.wrapper}>
 				<div className={style.nav}>
 
-					<button onClick={() => setCount(count => count + 1)}>new block</button>
+					<button onClick={() => handleAddNewTable(count => count + 1)}>new block</button>
 
 					<div>
 						<input

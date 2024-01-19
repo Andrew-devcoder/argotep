@@ -8,8 +8,8 @@ const CentralArea = () => {
 	return (
 		<>
 			<div>
-				<Header setCount={setCount} />
-				<TableList count={count} />
+				<Header handleAddNewTable={setCount} />
+				<TableList addNewTable={count} />
 			</div>
 		</>
 	)

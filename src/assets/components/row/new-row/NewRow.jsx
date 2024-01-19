@@ -10,11 +10,9 @@ import Data from '../../../../database/database.json';
 import style from './NewRow.module.scss'
 import { useEffect } from "react"
 
-const NewRow = ({ row }) => {
-
+const NewRow = ({ row, onSave }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
 	const [testInfo, setTestInfo] = useState('')
-
 
 	const [state, setState] = useState({
 		name: '',
@@ -50,19 +48,36 @@ const NewRow = ({ row }) => {
 
 	const sendDataToServer = async () => {
 		try {
-			const response = await fetch('http://localhost:3001/saveData', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(state),
-			});
+			const { name, select, age, date, fact } = state
+			console.log(state)
 
-			if (!response.ok) {
-				throw new Error('Помилка при відправці даних на сервер');
+			const rowData = {
+				name: name,
+				select: select,
+				age: age,
+				date: date,
+				fact: fact,
+			};
+
+			console.log(rowData)
+
+			if (onSave) {
+				onSave(rowData);
 			}
 
-			console.log('Дані успішно відправлені на сервер');
+			// const response = await fetch('http://localhost:3001/saveData', {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 	},
+			// 	body: JSON.stringify(sendData),
+			// });
+
+			// if (!response.ok) {
+			// 	throw new Error('Помилка при відправці даних на сервер');
+			// }
+
+			// console.log('Дані успішно відправлені на сервер');
 		} catch (error) {
 			console.error(error.message);
 		}
@@ -81,8 +96,8 @@ const NewRow = ({ row }) => {
 		<>
 			<div className={style.wrapper}>
 				<p>{row.id}. </p>
-				{/* <CatName handleChange={handleChange} state={state} />
-				<CatBreed handleChange={handleChange} state={state} /> */}
+				<CatName handleChange={handleChange} state={state} />
+				<CatBreed handleChange={handleChange} state={state} />
 				<CatAge handleChange={handleChange} state={state} />
 				<CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} />
 				<CatFact row={row} handleChange={handleChange} changeGetInfo={batya} />

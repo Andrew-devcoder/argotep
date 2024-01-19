@@ -3,24 +3,29 @@ import { NewTable } from "../new-table/NewTable"
 
 import style from './TableList.module.scss'
 
-const TableList = ({ count }) => {
-	const [blocks, setBlocks] = useState([]);
+const TableList = ({ addNewTable }) => {
+
+	const [tableList, setTableList] = useState([]);
+	const [rowsList, setRowslist] = useState([])
 
 	useEffect(() => {
-		if (count) {
-			setBlocks((prevBlocks) => {
-				const newBlock = { id: prevBlocks.length + 1 };
-				return [...prevBlocks, newBlock];
-			});
+		if (addNewTable) {
+			setTableList((prevBlocks) => [
+				...prevBlocks,
+				{ tableId: prevBlocks.length + 1, rows: rowsList },
+			]);
 		}
-	}, [count])
+	}, [addNewTable]);
 
+	useEffect(() => {
+		console.log(tableList)
+	})
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				{blocks.map((list, index) => (
-					<NewTable list={list} key={index} />
+				{tableList.map((table, index) => (
+					<NewTable table={table} key={index} setRowslist={setRowslist} />
 				))}
 			</div>
 		</>

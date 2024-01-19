@@ -4,22 +4,27 @@ import { NewRow } from "../new-row/NewRow";
 
 import style from './RowList.module.scss'
 
-const RowList = ({ count }) => {
-	const [blocks, setBlocks] = useState([]);
+const RowList = ({ addNewRow, setUpdateRowsList }) => {
+	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
-		if (count) {
-			setBlocks((prevBlocks) => {
-				const newBlock = { id: prevBlocks.length + 1 };
-				return [...prevBlocks, newBlock];
-			});
+		if (addNewRow) {
+			setRows((prevRows) => [
+				...prevRows,
+				{ rows: [addNewRow] },
+			]);
+			setUpdateRowsList(rows)
 		}
-	}, [count])
+	}, [addNewRow]);
+
+	useEffect(() => {
+		console.log(rows)
+	})
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				{blocks.map((row, index) => (
+				{rows.map((row, index) => (
 					<NewRow row={row} key={index} />
 				))}
 			</div>
