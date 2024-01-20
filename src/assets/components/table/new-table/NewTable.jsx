@@ -4,22 +4,25 @@ import { RowList } from "../../row/row-list/RowList"
 import style from './NewTable.module.scss'
 import { CheckboxContext } from "../../../../context/checkbox-context"
 
-const NewTable = ({ table, setRowslist }) => {
+const NewTable = ({ table }) => {
 
 	const [count, setCount] = useState(0)
-
-	const [upDateRowsList, setUpDateRowsList] = useState([])
-
 	const { tableId } = table
 
 	useEffect(() => {
-		setRowslist(upDateRowsList)
-	}, [setRowslist, upDateRowsList])
-
-	useEffect(() => {
 		console.log(table)
+	}, [])
 
-	})
+	// const [upDateArrayRows, setUpDateArrayRows] = useState([])
+
+	// useEffect(() => {
+	// 	upDateArray()
+	// 	console.log(upDateArrayRows)
+	// }, [upDateArray])
+
+	// const upDateArray = (array) => {
+	// 	setUpDateArrayRows(array)
+	// }
 
 	return (
 		<>
@@ -28,7 +31,7 @@ const NewTable = ({ table, setRowslist }) => {
 				<button onClick={() => setCount(count + 1)}>+</button>
 			</header>
 
-			<RowList addNewRow={count} upDateRowsList={setUpDateRowsList} />
+			<RowList addNewRow={count} />
 		</>
 	)
 }

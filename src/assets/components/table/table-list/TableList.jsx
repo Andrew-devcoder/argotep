@@ -15,17 +15,17 @@ const TableList = ({ addNewTable }) => {
 				{ tableId: prevBlocks.length + 1, rows: rowsList },
 			]);
 		}
-	}, [addNewTable]);
+	}, [addNewTable, rowsList]);
 
 	useEffect(() => {
 		console.log(tableList)
-	})
+	}, [])
 
 	return (
 		<>
 			<div className={style.wrapper}>
 				{tableList.map((table, index) => (
-					<NewTable table={table} key={index} setRowslist={setRowslist} />
+					<NewTable table={table} key={index} />
 				))}
 			</div>
 		</>

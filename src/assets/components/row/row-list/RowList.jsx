@@ -4,28 +4,23 @@ import { NewRow } from "../new-row/NewRow";
 
 import style from './RowList.module.scss'
 
-const RowList = ({ addNewRow, setUpdateRowsList }) => {
+const RowList = ({ addNewRow }) => {
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
 		if (addNewRow) {
-			// setRows((prevRows) => [
-			// 	...prevRows,
-			// 	{ rows: [addNewRow] },
-			// ]);
-			// setUpdateRowsList(rows)
-			setRows((prevRows) => {
-				const newRows = [...prevRows, { rows: [addNewRow] }];
-				setUpdateRowsList(newRows);
-				return newRows;
-			});
+			setRows((prevRows) => [
+				...prevRows,
+				{ rows: [addNewRow] },
+			]);
 
+			// upDateArray(rows)
 		}
-	}, [addNewRow, setUpdateRowsList]);
+	}, [addNewRow]);
 
 	useEffect(() => {
 		console.log(rows)
-	})
+	}, [rows])
 
 	return (
 		<>
