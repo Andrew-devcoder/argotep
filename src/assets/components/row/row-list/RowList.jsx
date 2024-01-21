@@ -4,53 +4,25 @@ import { NewRow } from "../new-row/NewRow";
 
 import style from './RowList.module.scss'
 
-const RowList = ({ addNewRow, sendGrandProps, creatRow, newRow }) => {
-	// const [rows, setRows] = useState([]);
-
-	// useEffect(() => {
-	// 	if (addNewRow) {
-	// 		setRows((prevRows) => [
-	// 			...prevRows,
-	// 			{ rows: addNewRow },
-	// 		]);
-
-	// 		// upDateArray(rows)
-	// 		// updateArray()
-	// 		// testTest()
-	// 	}
-
-	// }, [addNewRow]);
-
-	// useEffect(() => {
-	// 	console.log(rows)
-	// }, [rows])
-
-	// const testParentGetProps = (item) => {
-	// 	console.log("this item: ", item)
-	// 	sendGrandProps(item)
-	// }
-
-	// useEffect(() => {
-	// 	const getPropsArrayDate = (array) => {
-	// 		// setRows(array)
-	// 		console.log('array rows: ', array)
-	// 	}
-	// 	getPropsArrayDate()
-
-	// }, [addNewRow])
+const RowList = ({ addNewRow, creatRow, newRow }) => {
+	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
 		if (creatRow) {
-			newRow('new row take')
+			setRows((prevRows) => [
+				...prevRows,
+				{ rows: rows },
+			]);
 		}
-	}, [creatRow])
+
+	}, [creatRow]);
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				{/* {rows.map((row, index) => (
-					<NewRow row={row} key={index} testForPropsParent={testParentGetProps} sendDataRowsArray={getPropsArrayDate} />
-				))} */}
+				{rows.map((row, index) => (
+					<NewRow row={row} key={index} />
+				))}
 			</div>
 		</>
 	)

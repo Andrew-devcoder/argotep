@@ -7,7 +7,7 @@ import { CatFact } from "../../room/cat-fact/CatFact"
 
 import style from './NewRow.module.scss'
 
-const NewRow = ({ row, testForPropsParent, sendDataRowsArray }) => {
+const NewRow = ({ row, sendChange }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
 	const [testInfo, setTestInfo] = useState('')
 
@@ -18,10 +18,6 @@ const NewRow = ({ row, testForPropsParent, sendDataRowsArray }) => {
 		date: selectedDate.toLocaleDateString(),
 		fact: testInfo,
 	});
-
-	useEffect(() => {
-		sendDataRowsArray(state)
-	}, [row])
 
 	const handleChange = (e, field) => {
 		if (field === 'fact') {
@@ -46,6 +42,11 @@ const NewRow = ({ row, testForPropsParent, sendDataRowsArray }) => {
 	const checkState = () => {
 		console.log(state)
 	}
+
+
+	useEffect(() => {
+		sendChange(state)
+	}, [handleChange])
 
 	// const sendDataToServer = async () => {
 	// 	try {
@@ -96,10 +97,11 @@ const NewRow = ({ row, testForPropsParent, sendDataRowsArray }) => {
 				{/* <CatName handleChange={handleChange} state={state} /> */}
 				{/* <CatBreed handleChange={handleChange} state={state} /> */}
 				{/* <CatAge handleChange={handleChange} state={state} /> */}
+				{/* <CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} /> */}
 				<CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} />
 				{/* <CatFact row={row} handleChange={handleChange} changeGetInfo={batya} /> */}
 				<button onClick={checkState}>check state</button>
-				<button onClick={sendDataToServer}>Відправити дані на сервер</button>
+				{/* <button onClick={sendDataToServer}>Відправити дані на сервер</button> */}
 
 				{/* <button onClick={testAddRow}> test add row </button> */}
 

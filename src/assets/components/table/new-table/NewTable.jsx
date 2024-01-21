@@ -43,6 +43,10 @@ const NewTable = ({ table, onArrayUpdate }) => {
 		console.log(rows)
 	}, [setRows])
 
+	const sendChange = (obj) => {
+		console.log(obj)
+	}
+
 	return (
 		<>
 			<header className={style.header}>
@@ -52,7 +56,7 @@ const NewTable = ({ table, onArrayUpdate }) => {
 			</header>
 
 			{/* <RowList addNewRow={count} sendGrandProps={grendGetPropsParent} /> */}
-			<RowList creatRow={row} setRows={newRow => console.log(newRow)} />
+			<RowList creatRow={row} newRow={setRows} sendChange={sendChange} />
 		</>
 	)
 }
