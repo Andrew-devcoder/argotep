@@ -22,6 +22,7 @@ const TableList = ({ addNewTable }) => {
 	}, [])
 
 	const handleParentUpdate = (finalArray) => {
+		setRowslist(finalArray)
 		console.log('Grand Props:', { handleParentUpdate });
 		console.log('Final Updated Array:', finalArray);
 	};

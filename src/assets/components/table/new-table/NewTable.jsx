@@ -6,12 +6,12 @@ import { CheckboxContext } from "../../../../context/checkbox-context"
 
 const NewTable = ({ table, onArrayUpdate }) => {
 
-	const [count, setCount] = useState(0)
+	// const [count, setCount] = useState(0)
 	const { tableId } = table
 
-	useEffect(() => {
-		console.log(table)
-	}, [])
+	// useEffect(() => {
+	// 	console.log(table)
+	// }, [])
 
 	// const [upDateArrayRows, setUpDateArrayRows] = useState([])
 
@@ -24,21 +24,35 @@ const NewTable = ({ table, onArrayUpdate }) => {
 	// 	setUpDateArrayRows(array)
 	// }
 
-	const handleChildUpdate = (updatedArray) => {
-		console.log('Parent Props:', { handleChildUpdate });
-		console.log('Updated Array from Child:', updatedArray);
+	// const grendGetPropsParent = (item) => {
+	// 	console.log('Parent Props:', { item });
+	// 	console.log('Updated Array from Child:', updatedArray);
 
-		onArrayUpdate(updatedArray);
-	};
+	// 	onArrayUpdate(item);
+	// };
+
+	const [row, setRow] = useState(0)
+	const [rows, setRows] = useState([])
+
+	const handleAddNewRow = () => {
+		setRow(row + 1)
+		console.log('click handle add new row')
+	}
+
+	useEffect(() => {
+		console.log(rows)
+	}, [setRows])
 
 	return (
 		<>
 			<header className={style.header}>
 				<h2>hi mom {tableId} </h2>
-				<button onClick={() => setCount(count + 1)}>+</button>
+				{/* <button onClick={() => setCount(count + 1)}>+</button> */}
+				<button onClick={handleAddNewRow}>+</button>
 			</header>
 
-			<RowList addNewRow={count} onArrayUpdate={handleChildUpdate} />
+			{/* <RowList addNewRow={count} sendGrandProps={grendGetPropsParent} /> */}
+			<RowList creatRow={row} setRows={newRow => console.log(newRow)} />
 		</>
 	)
 }
