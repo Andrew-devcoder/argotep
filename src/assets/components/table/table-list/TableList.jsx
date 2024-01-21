@@ -21,11 +21,16 @@ const TableList = ({ addNewTable }) => {
 		console.log(tableList)
 	}, [])
 
+	const handleParentUpdate = (finalArray) => {
+		console.log('Grand Props:', { handleParentUpdate });
+		console.log('Final Updated Array:', finalArray);
+	};
+
 	return (
 		<>
 			<div className={style.wrapper}>
 				{tableList.map((table, index) => (
-					<NewTable table={table} key={index} />
+					<NewTable table={table} key={index} onArrayUpdate={handleParentUpdate} />
 				))}
 			</div>
 		</>

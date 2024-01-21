@@ -4,7 +4,7 @@ import { NewRow } from "../new-row/NewRow";
 
 import style from './RowList.module.scss'
 
-const RowList = ({ addNewRow }) => {
+const RowList = ({ addNewRow, onArrayUpdate }) => {
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
@@ -15,12 +15,18 @@ const RowList = ({ addNewRow }) => {
 			]);
 
 			// upDateArray(rows)
+			updateArray()
 		}
 	}, [addNewRow]);
 
 	useEffect(() => {
 		console.log(rows)
 	}, [rows])
+
+	const updateArray = () => {
+		const updatedArray = [1, 2, 3]; // Ваша логіка для оновлення масиву
+		onArrayUpdate(updatedArray);
+	};
 
 	return (
 		<>

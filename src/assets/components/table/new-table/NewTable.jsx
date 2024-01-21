@@ -4,7 +4,7 @@ import { RowList } from "../../row/row-list/RowList"
 import style from './NewTable.module.scss'
 import { CheckboxContext } from "../../../../context/checkbox-context"
 
-const NewTable = ({ table }) => {
+const NewTable = ({ table, onArrayUpdate }) => {
 
 	const [count, setCount] = useState(0)
 	const { tableId } = table
@@ -24,6 +24,13 @@ const NewTable = ({ table }) => {
 	// 	setUpDateArrayRows(array)
 	// }
 
+	const handleChildUpdate = (updatedArray) => {
+		console.log('Parent Props:', { handleChildUpdate });
+		console.log('Updated Array from Child:', updatedArray);
+
+		onArrayUpdate(updatedArray);
+	};
+
 	return (
 		<>
 			<header className={style.header}>
@@ -31,7 +38,7 @@ const NewTable = ({ table }) => {
 				<button onClick={() => setCount(count + 1)}>+</button>
 			</header>
 
-			<RowList addNewRow={count} />
+			<RowList addNewRow={count} onArrayUpdate={handleChildUpdate} />
 		</>
 	)
 }
