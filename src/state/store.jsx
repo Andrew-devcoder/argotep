@@ -20,13 +20,7 @@ export const useTables = create((set) => ({
 	},
 
 	addRow: (table) => {
-		// set((state) => {
-		// 	// console.log(state);
-		// 	// console.log(state.array.forEach((obj) => obj));
-		// 	return state;
-		// });
-
-		console.log(table.tableId)
+		console.log(table.rows)
 	},
 
 }))
