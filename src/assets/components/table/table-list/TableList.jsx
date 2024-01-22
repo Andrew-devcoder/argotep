@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { NewTable } from "../new-table/NewTable"
 
 import style from './TableList.module.scss'
+import { useTables } from "../../../../state/store";
 
 const TableList = ({ addNewTable }) => {
 
@@ -27,12 +28,21 @@ const TableList = ({ addNewTable }) => {
 		console.log('Final Updated Array:', finalArray);
 	};
 
+	// {/* test use add new table */}
+	const { array } = useTables()
+
 	return (
 		<>
 			<div className={style.wrapper}>
-				{tableList.map((table, index) => (
+				{/* {tableList.map((table, index) => (
 					<NewTable table={table} key={index} onArrayUpdate={handleParentUpdate} />
+				))} */}
+
+				{/* test use add new table */}
+				{array.map((item) => (
+					<NewTable key={item.tableId} table={item} />
 				))}
+				{/* test use add new table */}
 			</div>
 		</>
 	)
