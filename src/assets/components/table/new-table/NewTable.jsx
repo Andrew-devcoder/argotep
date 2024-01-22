@@ -3,8 +3,9 @@ import { RowList } from "../../row/row-list/RowList"
 
 import style from './NewTable.module.scss'
 import { CheckboxContext } from "../../../../context/checkbox-context"
+import { useTables } from "../../../../state/store"
 
-const NewTable = ({ table, onArrayUpdate }) => {
+const NewTable = ({ table }) => {
 
 	// const [count, setCount] = useState(0)
 	// const { tableId } = table
@@ -34,10 +35,10 @@ const NewTable = ({ table, onArrayUpdate }) => {
 	// const [row, setRow] = useState(0)
 	// const [rows, setRows] = useState([])
 
-	const handleAddNewRow = () => {
-		setRow(row + 1)
-		console.log('click handle add new row')
-	}
+	// const handleAddNewRow = () => {
+	// 	setRow(row + 1)
+	// 	console.log('click handle add new row')
+	// }
 
 	// useEffect(() => {
 	// 	console.log(rows)
@@ -50,8 +51,14 @@ const NewTable = ({ table, onArrayUpdate }) => {
 		if (table.tableId == 2) {
 			table.rows = 'a'
 		}
-		console.log(table)
+		// console.log(table)
 	}, [table])
+
+	const { addRow, array } = useTables()
+
+	useEffect(() => {
+		console.log(table.tableId)
+	}, [addRow])
 
 	return (
 		<>
@@ -62,7 +69,7 @@ const NewTable = ({ table, onArrayUpdate }) => {
 			</header> */}
 			<header className={style.header}>
 				<h2>hi mom {table.tableId} </h2>
-				<button onClick={handleAddNewRow}>+</button>
+				<button onClick={() => addRow(table)}>+</button>
 			</header>
 			<p>{table.rows}</p>
 			{/* <RowList addNewRow={count} sendGrandProps={grendGetPropsParent} /> */}

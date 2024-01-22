@@ -29,7 +29,7 @@ const TableList = ({ addNewTable }) => {
 	};
 
 	// {/* test use add new table */}
-	const { array } = useTables()
+	const { array, addRow } = useTables()
 
 	return (
 		<>
@@ -40,7 +40,7 @@ const TableList = ({ addNewTable }) => {
 
 				{/* test use add new table */}
 				{array.map((item) => (
-					<NewTable key={item.tableId} table={item} />
+					<NewTable key={item.tableId} table={item} addRow={addRow} />
 				))}
 				{/* test use add new table */}
 			</div>
