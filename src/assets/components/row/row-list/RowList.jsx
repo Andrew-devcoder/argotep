@@ -4,25 +4,12 @@ import { NewRow } from "../new-row/NewRow";
 
 import style from './RowList.module.scss'
 
-const RowList = ({ addNewRow, creatRow, newRow }) => {
-	const [rows, setRows] = useState([]);
-
-	useEffect(() => {
-		if (creatRow) {
-			setRows((prevRows) => [
-				...prevRows,
-				{ rows: rows },
-			]);
-		}
-
-	}, [creatRow]);
+const RowList = ({ row }) => {
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				{rows.map((row, index) => (
-					<NewRow row={row} key={index} />
-				))}
+				{row.rowId}
 			</div>
 		</>
 	)
