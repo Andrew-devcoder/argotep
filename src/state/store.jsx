@@ -1,10 +1,18 @@
 import { create } from 'zustand';
 
-// export const useStore = create((set) => ({
-// 	count: 0,
-// 	increment: () => set((state) => ({ count: state.count + 1 })),
-// 	decrement: () => set((state) => ({ count: state.count - 1 })),
-// }));
+export const useCheckbox = create((set) => ({
+	box: false,
+
+	setChecked: () => {
+		set(() => ({ box: true }))
+		console.log('true')
+	},
+
+	setDisabled: () => {
+		set(() => ({ box: false }))
+		console.log('false')
+	},
+}));
 
 
 
@@ -24,7 +32,6 @@ export const useTables = create((set) => ({
 			const updatedArray = state.array.map((t) => {
 				if (t === table) {
 					const newRows = [...(t.rows || []), { rowId: t.rows ? t.rows.length + 1 : 1 }];
-					// console.log('Updated Rows:', newRows); // Додайте вивід в консоль для перевірки
 					return { ...t, rows: newRows }
 				}
 				return t
@@ -37,7 +44,6 @@ export const useTables = create((set) => ({
 		set((state) => {
 			const updatedArray = state.array.filter((table) => table.tableId !== tableId)
 
-			// Оновити tableId в усіх залишених об'єктах
 			const updatedArrayWithCorrectIds = updatedArray.map((table, index) => ({
 				...table,
 				tableId: index + 1,
@@ -72,6 +78,27 @@ export const useTables = create((set) => ({
 
 			return { array: updatedArray }
 		})
+	},
+
+	saveServer: async () => {
+		try {
+			const sendData = { array: [...state.array] };
+			const response = await fetch('http://localhost:3001/saveData', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(sendData),
+			});
+
+			if (response.ok) {
+				console.log('Data saved successfully!');
+			} else {
+				console.error('Failed to save data.');
+			}
+		} catch (error) {
+			console.error('Error while saving data:', error);
+		}
 	}
 
 }))
