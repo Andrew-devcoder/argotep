@@ -25,33 +25,53 @@ export const useTables = create((set) => ({
 				if (t === table) {
 					const newRows = [...(t.rows || []), { rowId: t.rows ? t.rows.length + 1 : 1 }];
 					// console.log('Updated Rows:', newRows); // Додайте вивід в консоль для перевірки
-					return { ...t, rows: newRows };
+					return { ...t, rows: newRows }
 				}
-				return t;
-			});
-			return { array: updatedArray };
-		});
+				return t
+			})
+			return { array: updatedArray }
+		})
 	},
 
 	deleteTable: (tableId) => {
 		set((state) => {
-			const updatedArray = state.array.filter((t) => t.tableId !== tableId);
-			return { array: updatedArray };
-		});
-	},
-
-	removeTableById: (tableId) => {
-		set((state) => {
-			const updatedArray = state.array.filter((table) => table.tableId !== tableId);
+			const updatedArray = state.array.filter((table) => table.tableId !== tableId)
 
 			// Оновити tableId в усіх залишених об'єктах
 			const updatedArrayWithCorrectIds = updatedArray.map((table, index) => ({
 				...table,
 				tableId: index + 1,
-			}));
+			}))
 
-			return { array: updatedArrayWithCorrectIds };
-		});
+			return { array: updatedArrayWithCorrectIds }
+		})
 	},
+
+	deleteRow: (tableId, rowId) => {
+		set((state) => {
+			const updatedArray = state.array.map((table) => {
+				console.log(table)
+
+				if (table.tableId === tableId) {
+					const updatedRows = table.rows.filter((row) => row.rowId !== rowId)
+
+					const updatedRowsWithCorrectIds = updatedRows.map((row, index) => ({
+						...row,
+						rowId: index + 1,
+					}));
+
+					return { ...table, rows: updatedRowsWithCorrectIds }
+				}
+
+				console.log(table)
+
+				return table;
+			});
+
+			console.log(tableId, rowId)
+
+			return { array: updatedArray }
+		})
+	}
 
 }))

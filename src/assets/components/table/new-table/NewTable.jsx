@@ -5,7 +5,7 @@ import { useTables } from "../../../../state/store"
 import style from './NewTable.module.scss'
 
 const NewTable = ({ table }) => {
-	const { addRow, array, removeTableById } = useTables();
+	const { addRow, array, deleteTable } = useTables();
 
 	const [rows, setRows] = useState([]);
 
@@ -20,13 +20,13 @@ const NewTable = ({ table }) => {
 		<>
 			<header className={style.header}>
 				<h2>hi mom {table.tableId} </h2>
-				<button onClick={() => removeTableById(table.tableId)}>delete table</button>
+				<button onClick={() => deleteTable(table.tableId)}>delete table</button>
 				<button onClick={() => addRow(table)}>+</button>
 			</header>
 
 			{rows.map((row, index) => (
 				<div key={index}>
-					<RowList row={row}>{row.rowId}</RowList>
+					<RowList row={row} tableId={table.tableId} />
 				</div>
 			))}
 		</>
