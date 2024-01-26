@@ -18,12 +18,6 @@ const RowList = ({ row, tableId }) => {
 
 		console.log('Before deleteRow:', array);
 		await deleteRow(tableId, row.rowId);
-		console.log('After deleteRow:', array);
-
-		// const { array } = useTables()
-
-		// console.log('Before sendDataToServer:', array);
-		// await sendDataToServer(array);
 
 		useTables.setState((state) => {
 			console.log('Before sendDataToServer:', state.array);

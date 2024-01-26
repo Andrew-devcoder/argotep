@@ -1,3 +1,4 @@
+import { sendDataToServer } from '../../../services/send-data-to-server/sendDataToServer';
 import { useCheckbox, useTables } from '../../../state/store';
 
 import style from './Header.module.scss'
@@ -9,12 +10,22 @@ const Header = () => {
 
 	const { box, setChecked, setDisabled } = useCheckbox()
 
+	const sendData = async () => {
+		await addTable()
+
+		useTables.setState((state) => {
+			console.log(state, state.array)
+			sendDataToServer(state.array)
+			return state
+		})
+	}
+
 	return (
 		<>
 			<div className={style.wrapper}>
 				<div className={style.nav}>
 
-					<button onClick={addTable}>add new table</button>
+					<button onClick={() => sendData()}>add new table</button>
 
 					<div>
 						<input
