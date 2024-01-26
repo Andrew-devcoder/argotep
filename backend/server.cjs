@@ -30,14 +30,15 @@ app.post("/saveData", async (req, res) => {
     try {
         const newData = req.body;
 
-        // Зчитування існуючих даних з файлу
-        const existingData = await readDataFromFile();
+        // // Зчитування існуючих даних з файлу
+        // const existingData = await readDataFromFile();
 
-        // Додавання нових даних до існуючого масиву
-        const updatedData = [...existingData, newData];
+        // // Додавання нових даних до існуючого масиву
+        // const updatedData = [...existingData, newData];
 
         // Збереження оновлених даних у файл
-        await writeDataToFile(updatedData);
+        // await writeDataToFile(updatedData);
+        await writeDataToFile(newData);
 
         res.status(200).json({
             success: true,

@@ -1,19 +1,20 @@
-const sendDataToServer = async () => {
+export const sendDataToServer = async (array) => {
     try {
+        const sendData = { array: [...array] };
         const response = await fetch("http://localhost:3001/saveData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(dataTest), // dataTest - дані, які ви хочете відправити
+            body: JSON.stringify(sendData),
         });
 
-        if (!response.ok) {
-            throw new Error("Помилка при відправці даних на сервер");
+        if (response.ok) {
+            console.log("Data saved successfully!");
+        } else {
+            console.error("Failed to save data.");
         }
-
-        console.log("Дані успішно відправлені на сервер");
     } catch (error) {
-        console.error(error.message);
+        console.error("Error while saving data:", error);
     }
 };

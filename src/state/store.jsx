@@ -56,8 +56,6 @@ export const useTables = create((set) => ({
 	deleteRow: (tableId, rowId) => {
 		set((state) => {
 			const updatedArray = state.array.map((table) => {
-				console.log(table)
-
 				if (table.tableId === tableId) {
 					const updatedRows = table.rows.filter((row) => row.rowId !== rowId)
 
@@ -68,21 +66,18 @@ export const useTables = create((set) => ({
 
 					return { ...table, rows: updatedRowsWithCorrectIds }
 				}
-
-				console.log(table)
-
 				return table;
 			});
-
-			console.log(tableId, rowId)
-
 			return { array: updatedArray }
 		})
 	},
+}))
 
-	saveServer: async () => {
+export const useServer = create((set) => ({
+
+	saveServer: async (array) => {
 		try {
-			const sendData = { array: [...state.array] };
+			const sendData = { array: [...array] };
 			const response = await fetch('http://localhost:3001/saveData', {
 				method: 'POST',
 				headers: {
@@ -99,6 +94,5 @@ export const useTables = create((set) => ({
 		} catch (error) {
 			console.error('Error while saving data:', error);
 		}
-	}
-
-}))
+	},
+}));
