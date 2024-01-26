@@ -29,15 +29,6 @@ const writeDataToFile = async (data) => {
 app.post("/saveData", async (req, res) => {
     try {
         const newData = req.body;
-
-        // // Зчитування існуючих даних з файлу
-        // const existingData = await readDataFromFile();
-
-        // // Додавання нових даних до існуючого масиву
-        // const updatedData = [...existingData, newData];
-
-        // Збереження оновлених даних у файл
-        // await writeDataToFile(updatedData);
         await writeDataToFile(newData);
 
         res.status(200).json({
@@ -49,6 +40,24 @@ app.post("/saveData", async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Виникла помилка при збереженні даних.",
+        });
+    }
+});
+
+app.post("/getData", async (req, res) => {
+    try {
+        const data = await fs.readFile("data.json", "utf-8");
+        const jsonData = JSON.parse(data);
+
+        res.status(200).json({
+            success: true,
+            data: jsonData,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Виникла помилка при отримання даних.",
         });
     }
 });
