@@ -44,7 +44,7 @@ app.post("/saveData", async (req, res) => {
     }
 });
 
-app.post("/getData", async (req, res) => {
+app.get("/getData", async (req, res) => {
     try {
         const data = await fs.readFile("data.json", "utf-8");
         const jsonData = JSON.parse(data);
