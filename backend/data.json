@@ -3,6 +3,18 @@
     {
       "tableId": 1,
       "rows": []
+    },
+    {
+      "tableId": 2,
+      "rows": [
+        {
+          "rowId": 1
+        }
+      ]
+    },
+    {
+      "tableId": 3,
+      "rows": []
     }
   ]
 }

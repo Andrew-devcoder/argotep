@@ -13,7 +13,9 @@ const TableList = () => {
 		const fetchData = async () => {
 			try {
 				const data = await getDataFromServer()
-				useTables.setState((state) => ({ array: data.array }))
+				console.log(data)
+				const dataArray = data.data.array
+				useTables.setState({ array: dataArray })
 			} catch (error) {
 				console.error("Error fetching data from server:", error);
 			}
