@@ -30,7 +30,8 @@ const RowList = ({ row, tableId }) => {
 	return (
 		<>
 			<div className={style.wrapper}>
-				{row.rowId}
+				<NewRow row={row} />
+
 				<button onClick={() => {
 					sendData()
 				}}>del</button>

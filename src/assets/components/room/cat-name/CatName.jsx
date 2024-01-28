@@ -1,6 +1,6 @@
 import style from './CatName.module.scss'
 
-const CatName = ({ handleChange, state }) => {
+const CatName = ({ row }) => {
 
 
 	return (
@@ -12,7 +12,7 @@ const CatName = ({ handleChange, state }) => {
 					handleChange(e, 'name')
 				}
 				}
-				value={state.name}
+				value={row.name}
 			/>
 		</>
 	)

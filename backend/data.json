@@ -7,21 +7,6 @@
           "rowId": 1
         }
       ]
-    },
-    {
-      "tableId": 2,
-      "rows": [
-        {
-          "rowId": 1
-        },
-        {
-          "rowId": 2
-        }
-      ]
-    },
-    {
-      "tableId": 3,
-      "rows": []
     }
   ]
 }
