@@ -2,13 +2,20 @@
   "array": [
     {
       "tableId": 1,
-      "rows": []
+      "rows": [
+        {
+          "rowId": 1
+        }
+      ]
     },
     {
       "tableId": 2,
       "rows": [
         {
           "rowId": 1
+        },
+        {
+          "rowId": 2
         }
       ]
     },

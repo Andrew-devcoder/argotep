@@ -30,6 +30,8 @@ export const getDataFromServer = async () => {
         const data = await response.json();
         console.log("Data from server:", data);
 
+        return data;
+
         // Тут ви можете робити що-небудь із отриманими даними, наприклад, оновлювати стан
         // set({ array: data });
     } catch (error) {
