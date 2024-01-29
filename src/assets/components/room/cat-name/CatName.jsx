@@ -1,6 +1,12 @@
 import style from './CatName.module.scss'
 
-const CatName = ({ row }) => {
+const CatName = ({ row, setName }) => {
+
+	const handleChange = (e) => {
+		const inputValue = e.target.value;
+		setName(inputValue);
+	};
+
 
 
 	return (
@@ -12,7 +18,7 @@ const CatName = ({ row }) => {
 					handleChange(e, 'name')
 				}
 				}
-				value={row.name}
+				value={row.name || ''}
 			/>
 		</>
 	)

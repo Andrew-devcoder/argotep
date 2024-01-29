@@ -16,8 +16,9 @@ const RowList = ({ row, tableId }) => {
 
 	const sendData = async () => {
 
-		console.log('Before deleteRow:', array);
+		console.log('Before deleteRow:', array, tableId, row.rowId);
 		await deleteRow(tableId, row.rowId);
+		console.log('after deleteRow:', array, tableId, row.rowId);
 
 		useTables.setState((state) => {
 			console.log('Before sendDataToServer:', state.array);
@@ -26,11 +27,19 @@ const RowList = ({ row, tableId }) => {
 		});
 	}
 
+	// useEffect(() => {
+	// 	console.log('reload')
+	// }, [reload])
+
+	const reload = () => {
+		console.log('reload')
+	}
+
 
 	return (
 		<>
 			<div className={style.wrapper}>
-				<NewRow row={row} />
+				<NewRow row={row} upDateRowsList={reload} />
 
 				<button onClick={() => {
 					sendData()

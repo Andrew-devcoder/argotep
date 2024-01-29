@@ -22,7 +22,11 @@ export const useTables = create((set) => ({
 	addTable: () => {
 		set((state) => {
 			const newId = state.array.length + 1
-			const newTable = { tableId: newId, rows: [] }
+			const newTable = {
+				tableId: newId, rows: [
+					{ name: '', rowId: '' }
+				]
+			}
 			return { array: [...state.array, newTable] }
 		})
 	},
@@ -59,10 +63,14 @@ export const useTables = create((set) => ({
 				if (table.tableId === tableId) {
 					const updatedRows = table.rows.filter((row) => row.rowId !== rowId)
 
+					console.log(updatedRows)
+
 					const updatedRowsWithCorrectIds = updatedRows.map((row, index) => ({
 						...row,
 						rowId: index + 1,
 					}));
+
+					console.log(updatedRowsWithCorrectIds)
 
 					return { ...table, rows: updatedRowsWithCorrectIds }
 				}
@@ -71,28 +79,47 @@ export const useTables = create((set) => ({
 			return { array: updatedArray }
 		})
 	},
+
+
+	updateRowName: (tableId, rowId, name) => {
+		set((state) => {
+			const updatedArray = state.array.map((table) => {
+				if (table.tableId === tableId) {
+					const updatedRows = table.rows.map((row) => {
+						if (row.rowId === rowId) {
+							return { ...row, name };
+						}
+						return row;
+					});
+					return { ...table, rows: updatedRows };
+				}
+				return table;
+			});
+			return { array: updatedArray };
+		});
+	},
 }))
 
-export const useServer = create((set) => ({
+// export const useServer = create((set) => ({
 
-	saveServer: async (array) => {
-		try {
-			const sendData = { array: [...array] };
-			const response = await fetch('http://localhost:3001/saveData', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(sendData),
-			});
+// 	saveServer: async (array) => {
+// 		try {
+// 			const sendData = { array: [...array] };
+// 			const response = await fetch('http://localhost:3001/saveData', {
+// 				method: 'POST',
+// 				headers: {
+// 					'Content-Type': 'application/json',
+// 				},
+// 				body: JSON.stringify(sendData),
+// 			});
 
-			if (response.ok) {
-				console.log('Data saved successfully!');
-			} else {
-				console.error('Failed to save data.');
-			}
-		} catch (error) {
-			console.error('Error while saving data:', error);
-		}
-	},
-}));
+// 			if (response.ok) {
+// 				console.log('Data saved successfully!');
+// 			} else {
+// 				console.error('Failed to save data.');
+// 			}
+// 		} catch (error) {
+// 			console.error('Error while saving data:', error);
+// 		}
+// 	},
+// }));

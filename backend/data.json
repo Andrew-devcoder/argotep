@@ -4,9 +4,17 @@
       "tableId": 1,
       "rows": [
         {
-          "rowId": 1
+          "rowId": 1,
+          "name": "фівйфівфівфіц1"
+        },
+        {
+          "rowId": 2
         }
       ]
+    },
+    {
+      "tableId": 2,
+      "rows": []
     }
   ]
 }

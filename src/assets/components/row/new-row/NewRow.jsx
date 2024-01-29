@@ -6,18 +6,47 @@ import { CateDate } from "../../room/cat-date/CatDate"
 import { CatFact } from "../../room/cat-fact/CatFact"
 
 import style from './NewRow.module.scss'
+import { useTables } from "../../../../state/store"
+import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
 
-const NewRow = ({ row }) => {
+const NewRow = ({ row, upDateRowsList }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
-	console.log(row)
+	const [name, setName] = useState(row.name)
+
 	const { rowId } = row
 
+	// console.log(row)
+
+	const { array, updateRowName } = useTables()
+
+	const handleNameChange = (newName) => {
+		row.name = name
+		console.log(array)
+		setName(newName);
+		updateRowName(row.tableId, row.rowId, newName);
+		upDateRowsList()
+		console.log(array)
+	};
+
+
+	useEffect(() => {
+
+		// 	console.log(array)
+		const timeoutStart = setTimeout(() => {
+			sendDataToServer(array)
+		}, 3000);
+
+		return () => clearTimeout(timeoutStart)
+	}, [handleNameChange])
+
+	const updatedRow = { ...row, name }; // Create a new object with updated name
+	// console.log(updatedRow);
 
 	return (
 		<>
 			<div className={style.wrapper}>
 				<p>{rowId}. </p>
-				<CatName row={row} />
+				<CatName row={updatedRow} setName={handleNameChange} />
 				{/* <CatBreed handleChange={handleChange} state={state} /> */}
 				{/* <CatAge handleChange={handleChange} state={state} /> */}
 				{/* <CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} /> */}
