@@ -5,17 +5,13 @@
       "rows": [
         {
           "rowId": 1,
-          "name": "перший"
+          "name": "1"
         },
         {
           "rowId": 2,
-          "name": "другий"
+          "name": "3"
         }
       ]
-    },
-    {
-      "tableId": 2,
-      "rows": []
     }
   ]
 }

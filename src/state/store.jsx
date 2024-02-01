@@ -63,14 +63,14 @@ export const useTables = create((set) => ({
 				if (table.tableId === tableId) {
 					const updatedRows = table.rows.filter((row) => row.rowId !== rowId)
 
-					console.log(updatedRows)
+					console.log('після видалення рядка, стан масива: ', updatedRows)
 
 					const updatedRowsWithCorrectIds = updatedRows.map((row, index) => ({
 						...row,
 						rowId: index + 1,
 					}));
 
-					console.log(updatedRowsWithCorrectIds)
+					console.log('переписали всі id рядків :', updatedRowsWithCorrectIds)
 
 					return { ...table, rows: updatedRowsWithCorrectIds }
 				}
@@ -87,7 +87,9 @@ export const useTables = create((set) => ({
 				if (table.tableId === tableId) {
 					const updatedRows = table.rows.map((row) => {
 						if (row.rowId === rowId) {
-							return { ...row, name };
+							const newRows = { ...row, name }
+							console.log("begin update row name:", newRows)
+							return newRows;
 						}
 						return row;
 					});

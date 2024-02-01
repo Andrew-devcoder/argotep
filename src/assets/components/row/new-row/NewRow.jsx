@@ -28,8 +28,12 @@ const NewRow = ({ row, upDateRowsList }) => {
 		upDateRowsList();
 	};
 
+	// useEffect(() => {
+	// 	updateRowName(row.tableId, row.rowId, name);
+	// }, [row])
+
 	const updatedRow = { ...row, name }; // Create a new object with updated name
-	// console.log(updatedRow);
+	// console.log('test', updatedRow);
 
 	return (
 		<>

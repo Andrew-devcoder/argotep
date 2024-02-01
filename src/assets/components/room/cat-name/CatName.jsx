@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import style from './CatName.module.scss'
 
 const CatName = ({ row, setName, onBlur }) => {
@@ -7,6 +8,15 @@ const CatName = ({ row, setName, onBlur }) => {
 		setName(inputValue);
 	};
 
+	console.log(row.name)
+
+	const inputRef = useRef(null);
+
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.value = row.name;
+		}
+	}, [row.name]);
 
 
 	return (
