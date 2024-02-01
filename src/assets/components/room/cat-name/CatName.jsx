@@ -1,6 +1,6 @@
 import style from './CatName.module.scss'
 
-const CatName = ({ row, setName }) => {
+const CatName = ({ row, setName, onBlur }) => {
 
 	const handleChange = (e) => {
 		const inputValue = e.target.value;
@@ -14,6 +14,7 @@ const CatName = ({ row, setName }) => {
 			<input
 				className={style.inputName}
 				placeholder="Name"
+				onBlur={onBlur}
 				onChange={(e) => {
 					handleChange(e, 'name')
 				}

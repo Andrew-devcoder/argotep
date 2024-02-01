@@ -12,32 +12,21 @@ import { sendDataToServer } from "../../../../services/send-data-to-server/sendD
 const NewRow = ({ row, upDateRowsList }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
 	const [name, setName] = useState(row.name)
+	const [timer, setTimer] = useState(null);
 
 	const { rowId } = row
-
-	// console.log(row)
-
-	const { array, updateRowName } = useTables()
+	const { updateRowName } = useTables()
 
 	const handleNameChange = (newName) => {
-		row.name = name
-		console.log(array)
+		row.name = newName
 		setName(newName);
-		updateRowName(row.tableId, row.rowId, newName);
-		upDateRowsList()
-		console.log(array)
 	};
 
 
-	useEffect(() => {
-
-		// 	console.log(array)
-		const timeoutStart = setTimeout(() => {
-			sendDataToServer(array)
-		}, 3000);
-
-		return () => clearTimeout(timeoutStart)
-	}, [handleNameChange])
+	const handleBlur = () => {
+		updateRowName(row.tableId, row.rowId, name);
+		upDateRowsList();
+	};
 
 	const updatedRow = { ...row, name }; // Create a new object with updated name
 	// console.log(updatedRow);
@@ -46,7 +35,7 @@ const NewRow = ({ row, upDateRowsList }) => {
 		<>
 			<div className={style.wrapper}>
 				<p>{rowId}. </p>
-				<CatName row={updatedRow} setName={handleNameChange} />
+				<CatName row={updatedRow} setName={handleNameChange} onBlur={handleBlur} />
 				{/* <CatBreed handleChange={handleChange} state={state} /> */}
 				{/* <CatAge handleChange={handleChange} state={state} /> */}
 				{/* <CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} /> */}
