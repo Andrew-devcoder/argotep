@@ -23,9 +23,12 @@ const NewTable = ({ table }) => {
 		useTables.setState((state) => {
 			console.log(state, state.array)
 			sendDataToServer(state.array)
+			setRows([]);
 			return state
 		})
 	}
+
+
 
 	return (
 		<>

@@ -16,6 +16,7 @@ const RowList = ({ row, tableId }) => {
 
 	useEffect(() => {
 		console.log('after delete row -> reload')
+
 	}, [row])
 
 	const sendData = async () => {
@@ -36,6 +37,9 @@ const RowList = ({ row, tableId }) => {
 			return state;
 		});
 	}
+
+
+
 
 
 	return (

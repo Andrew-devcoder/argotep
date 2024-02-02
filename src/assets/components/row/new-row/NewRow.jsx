@@ -15,7 +15,7 @@ const NewRow = ({ row, upDateRowsList }) => {
 	const [timer, setTimer] = useState(null);
 
 	const { rowId } = row
-	const { updateRowName } = useTables()
+	const { updateRowName, array } = useTables()
 
 	const handleNameChange = (newName) => {
 		row.name = newName
@@ -33,7 +33,7 @@ const NewRow = ({ row, upDateRowsList }) => {
 	// }, [row])
 
 	const updatedRow = { ...row, name }; // Create a new object with updated name
-	// console.log('test', updatedRow);
+	console.log('test', updatedRow, 'перевірка всього масива в стейте :', array);
 
 	return (
 		<>
