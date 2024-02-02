@@ -34,12 +34,13 @@ const NewTable = ({ table }) => {
 		<>
 			<header className={style.header}>
 				<h2>hi mom {table.tableId} </h2>
+				{/* imput -> name table */}
 				<button onClick={() => sendData()}>delete table</button>
 				<button onClick={() => addRow(table)}>+</button>
 			</header>
 
-			{rows.map((row, index) => (
-				<div key={index}>
+			{rows.map((row) => (
+				<div key={`row-${Math.floor(Math.random() * 10000)}`}>
 					<RowList row={row} tableId={table.tableId} />
 				</div>
 			))}

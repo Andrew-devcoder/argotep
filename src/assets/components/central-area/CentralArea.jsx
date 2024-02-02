@@ -4,6 +4,10 @@ import { TableList } from "../table/table-list/TableList"
 
 const CentralArea = () => {
 
+
+	// useEffect for array
+	// set useTable
+
 	return (
 		<>
 			<div>

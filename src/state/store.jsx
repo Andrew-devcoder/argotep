@@ -15,7 +15,6 @@ export const useCheckbox = create((set) => ({
 }));
 
 
-
 export const useTables = create((set) => ({
 	array: [],
 
@@ -23,9 +22,7 @@ export const useTables = create((set) => ({
 		set((state) => {
 			const newId = state.array.length + 1
 			const newTable = {
-				tableId: newId, rows: [
-					{ name: '', rowId: '' }
-				]
+				tableId: newId, rows: []
 			}
 			return { array: [...state.array, newTable] }
 		})

@@ -28,7 +28,7 @@ const TableList = () => {
 		<>
 			<div className={style.wrapper}>
 				{array?.map((item) => (
-					<NewTable key={item.tableId} table={item} addRow={addRow} />
+					<NewTable key={Math.floor(Math.random() * 10000)} table={item} addRow={addRow} />
 				))}
 			</div>
 		</>
