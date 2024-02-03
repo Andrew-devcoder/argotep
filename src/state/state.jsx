@@ -41,13 +41,13 @@ export const useRooms = create((set) => ({
 		})
 	},
 
-	delRoom: (tableId) => {
+	delRoom: (roomId) => {
 		set((state) => {
-			const updatedArray = state.array.filter((table) => table.tableId !== tableId)
+			const updatedArray = state.array.filter((room) => room.id !== roomId)
 
-			const updatedArrayWithCorrectIds = updatedArray.map((table, index) => ({
-				...table,
-				tableId: index + 1,
+			const updatedArrayWithCorrectIds = updatedArray.map((room, index) => ({
+				...room,
+				id: index + 1,
 			}))
 
 			return { array: updatedArrayWithCorrectIds }

@@ -23,12 +23,12 @@ const NewRoom = ({ room }) => {
 
 
 	const sendData = async () => {
-		await delRoom(room.tableId)
+		await delRoom(room.id)
 
 		useRooms.setState((state) => {
 			console.log(state, state.array)
 			sendDataToServer(state.array)
-			setRows([]);
+			// setRows([]);
 			return state
 		})
 	}

@@ -1,27 +1,18 @@
 {
   "array": [
     {
-      "nameRoom": "new room next",
+      "nameRoom": "",
       "rows": [
         {
-          "rowId": 1,
-          "name": ""
-        },
-        {
-          "rowId": 2
-        },
-        {
-          "rowId": 3
+          "rowId": 1
         }
-      ]
+      ],
+      "id": 1
     },
     {
-      "nameRoom": "asdasd",
-      "rows": []
-    },
-    {
-      "nameRoom": "",
-      "rows": []
+      "nameRoom": "asd",
+      "rows": [],
+      "id": 2
     }
   ]
 }
