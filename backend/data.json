@@ -1,17 +1,23 @@
 {
   "array": [
     {
-      "tableId": 1,
+      "nameRoom": "new room next",
       "rows": [
         {
           "rowId": 1,
-          "name": "1"
+          "name": ""
         },
         {
-          "rowId": 2,
-          "name": "2"
+          "rowId": 2
+        },
+        {
+          "rowId": 3
         }
       ]
+    },
+    {
+      "nameRoom": "asdasd",
+      "rows": []
     },
     {
       "nameRoom": "",

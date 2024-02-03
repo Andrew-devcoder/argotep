@@ -21,10 +21,10 @@ export const useRooms = create((set) => ({
 	addNewRoom: () => {
 		set((state) => {
 			// const newId = state.array.length + 1
-			const newTable = {
+			const NewRoom = {
 				nameRoom: '', rows: []
 			}
-			return { array: [...state.array, newTable] }
+			return { array: [...state.array, NewRoom] }
 		})
 	},
 
@@ -75,6 +75,19 @@ export const useRooms = create((set) => ({
 			});
 			return { array: updatedArray }
 		})
+	},
+
+	updateRoomName: (newName, room) => {
+		set((state) => {
+			const updatedArray = state.array.map((prevRoom) => {
+				if (prevRoom === room) {
+					prevRoom.nameRoom = newName
+					return state
+				}
+				return
+			});
+			return { array: updatedArray };
+		});
 	},
 
 

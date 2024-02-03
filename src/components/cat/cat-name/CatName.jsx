@@ -10,13 +10,13 @@ const CatName = ({ row, setName, onBlur }) => {
 
 	console.log(row.name)
 
-	const inputRef = useRef(null);
+	// const inputRef = useRef(null);
 
-	useEffect(() => {
-		if (inputRef.current) {
-			inputRef.current.value = row.name;
-		}
-	}, [row.name]);
+	// useEffect(() => {
+	// 	if (inputRef.current) {
+	// 		inputRef.current.value = row.name;
+	// 	}
+	// }, [row.name]);
 
 
 	return (
@@ -27,8 +27,7 @@ const CatName = ({ row, setName, onBlur }) => {
 				onBlur={onBlur}
 				onChange={(e) => {
 					handleChange(e, 'name')
-				}
-				}
+				}}
 				value={row.name || ''}
 			/>
 		</>
