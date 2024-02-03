@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Sidebar } from '../../assets/components/sidebar/Sidebar'
-import { CentralArea } from '../../assets/components/central-area/CentralArea';
+import { Sidebar } from '../../components/sidebar/Sidebar';
+import { CentralArea } from '../../components/central-area/CentralArea';
 
 import style from './Home.module.scss'
 
 const Home = () => {
-
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 
 	const toggleSidebarStyles = (isOpen) => {

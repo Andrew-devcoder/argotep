@@ -1,9 +1,9 @@
-import { useRooms } from "../../../../state/state";
-import { NewTable } from "../new-table/NewTable"
+import { useRooms } from "../../../state/state";
+import { NewTable } from "../new-room/NewRoom"
 
-import style from './TableList.module.scss'
+import style from './RoomList.module.scss'
 
-const TableList = () => {
+const RoomList = () => {
 	const { array, addRow } = useRooms()
 
 	return (
@@ -17,4 +17,4 @@ const TableList = () => {
 	)
 }
 
-export { TableList }
+export { RoomList }

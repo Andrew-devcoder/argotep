@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { useRooms } from "../../../../state/state"
-import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer";
+import { useRooms } from "../../../state/state"
+import { sendDataToServer } from "../../../services/data-server/dataServer";
 import { RowList } from "../../row/row-list/RowList"
 
-import style from './NewTable.module.scss'
+import style from './NewRoom.module.scss'
 
 const NewTable = ({ table }) => {
 	const { addRow, array, delRoom } = useRooms();
@@ -38,7 +38,7 @@ const NewTable = ({ table }) => {
 					type="text"
 					placeholder="Name room"
 				/>
-				<button onClick={() => sendData()}>delete table</button>
+				<button onClick={() => sendData()}>delete room</button>
 				<button onClick={() => addRow(table)}>+</button>
 			</header>
 

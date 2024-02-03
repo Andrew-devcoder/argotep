@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NewRow } from "../new-row/NewRow";
-import { useRooms } from "../../../../state/state";
-import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
+import { useRooms } from "../../../state/state";
+import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 import style from './RowList.module.scss'
 

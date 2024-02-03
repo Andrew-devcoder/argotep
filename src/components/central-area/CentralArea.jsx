@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useRooms } from "../../../state/state";
-import { getDataFromServer } from "../../../services/send-data-to-server/sendDataToServer";
+import { useRooms } from "../../state/state";
+import { getDataFromServer } from "../../services/data-server/dataServer";
 import { Header } from "../header/Header"
-import { TableList } from "../table/table-list/TableList"
+import { RoomList } from "../room/room-list/RoomList";
 
 const CentralArea = () => {
 
@@ -25,7 +25,7 @@ const CentralArea = () => {
 		<>
 			<div>
 				<Header />
-				<TableList />
+				<RoomList />
 			</div>
 		</>
 	)

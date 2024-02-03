@@ -1,5 +1,5 @@
-import { sendDataToServer } from '../../../services/send-data-to-server/sendDataToServer';
-import { useCheckbox, useRooms } from '../../../state/state';
+import { sendDataToServer } from '../../services/data-server/dataServer';
+import { useCheckbox, useRooms } from '../../state/state';
 
 import style from './Header.module.scss'
 
@@ -25,7 +25,7 @@ const Header = () => {
 			<div className={style.wrapper}>
 				<div className={style.nav}>
 
-					<button onClick={() => sendData()}>add new room</button>
+					<button onClick={() => sendData()}>new room</button>
 
 					<div>
 						<input

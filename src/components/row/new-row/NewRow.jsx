@@ -1,13 +1,10 @@
-import { useState, useEffect, useSyncExternalStore } from "react"
-import { CatName } from "../../room/cat-name/CatName"
-import { CatBreed } from "../../room/cat-breed/CatBreed"
-import { CatAge } from "../../room/cat-age/CatAge"
-import { CateDate } from "../../room/cat-date/CatDate"
-import { CatFact } from "../../room/cat-fact/CatFact"
+import { useState, useEffect } from "react"
+
 
 import style from './NewRow.module.scss'
-import { useRooms } from "../../../../state/state"
-import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
+import { useRooms } from "../../../state/state"
+// import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
+import { CatName } from "../../cat/cat-name/CatName"
 
 const NewRow = ({ row, upDateRowsList }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
