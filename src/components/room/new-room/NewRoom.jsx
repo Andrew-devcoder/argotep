@@ -7,33 +7,19 @@ import style from './NewRoom.module.scss'
 import { NameRoom } from "../name-room/NameRoom";
 
 const NewRoom = ({ room }) => {
-	const { addRow, array, delRoom, updateRoomName } = useRooms();
-	// const [rows, setRows] = useState([]);
-
-	// useEffect(() => {
-	// 	const currentTable = array.find((t) => t.tableId === table.tableId);
-	// 	if (currentTable) {
-	// 		setRows(currentTable.rows || []);
-	// 	}
-	// }, [array, table.tableId]);
-
-	// const rows = room.rows
+	const { addRow, array, delRoom } = useRooms();
+	const [name, setName] = useState(room.nameRoom)
 
 	const { rows } = room
 
-
-	const sendData = async () => {
+	const remove = async () => {
 		await delRoom(room.id)
-
 		useRooms.setState((state) => {
 			console.log(state, state.array)
 			sendDataToServer(state.array)
-			// setRows([]);
 			return state
 		})
 	}
-
-	const [name, setName] = useState(room.nameRoom)
 
 	const handleNameChange = (newName) => {
 		room.nameRoom = newName
@@ -41,20 +27,18 @@ const NewRoom = ({ room }) => {
 	};
 
 	const handleBlur = () => {
-		// updateRoomName(name, room);
 		sendDataToServer(array)
 		console.log('handle blur')
 	};
 
-	const updatedRow = { ...room, name }
-
+	const updatedRow = { ...room, nameRoom: name }
 
 	return (
 		<>
 			<header className={style.header}>
 				<NameRoom room={updatedRow} setName={handleNameChange} onBlur={handleBlur} />
 
-				<button onClick={() => sendData()}>delete room</button>
+				<button onClick={() => remove()}>delete room</button>
 				<button onClick={() => addRow(room)}>+</button>
 			</header>
 

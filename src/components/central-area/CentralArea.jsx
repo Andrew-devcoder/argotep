@@ -10,7 +10,6 @@ const CentralArea = () => {
 		const fetchData = async () => {
 			try {
 				const data = await getDataFromServer()
-				console.log(data)
 				const dataArray = data.data.array
 				useRooms.setState({ array: dataArray })
 			} catch (error) {
