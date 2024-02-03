@@ -8,17 +8,6 @@ const CatName = ({ row, setName, onBlur }) => {
 		setName(inputValue);
 	};
 
-	console.log(row.name)
-
-	// const inputRef = useRef(null);
-
-	// useEffect(() => {
-	// 	if (inputRef.current) {
-	// 		inputRef.current.value = row.name;
-	// 	}
-	// }, [row.name]);
-
-
 	return (
 		<>
 			<input

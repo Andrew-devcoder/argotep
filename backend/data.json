@@ -4,7 +4,8 @@
       "nameRoom": "",
       "rows": [
         {
-          "rowId": 1
+          "rowId": 1,
+          "name": "2"
         }
       ],
       "id": 1
