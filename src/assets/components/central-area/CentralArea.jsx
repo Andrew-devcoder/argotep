@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useRooms } from "../../../state/store";
+import { useRooms } from "../../../state/state";
 import { getDataFromServer } from "../../../services/send-data-to-server/sendDataToServer";
 import { Header } from "../header/Header"
 import { TableList } from "../table/table-list/TableList"

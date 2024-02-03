@@ -1,4 +1,4 @@
-import { useRooms } from "../../../../state/store";
+import { useRooms } from "../../../../state/state";
 import { NewTable } from "../new-table/NewTable"
 
 import style from './TableList.module.scss'

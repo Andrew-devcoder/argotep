@@ -6,7 +6,7 @@ import { CateDate } from "../../room/cat-date/CatDate"
 import { CatFact } from "../../room/cat-fact/CatFact"
 
 import style from './NewRow.module.scss'
-import { useRooms } from "../../../../state/store"
+import { useRooms } from "../../../../state/state"
 import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
 
 const NewRow = ({ row, upDateRowsList }) => {

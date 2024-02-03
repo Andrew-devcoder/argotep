@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useRooms } from "../../../../state/store"
+import { useRooms } from "../../../../state/state"
 import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer";
 import { RowList } from "../../row/row-list/RowList"
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NewRow } from "../new-row/NewRow";
-import { useRooms } from "../../../../state/store";
+import { useRooms } from "../../../../state/state";
 import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
 
 import style from './RowList.module.scss'

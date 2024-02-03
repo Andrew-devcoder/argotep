@@ -1,5 +1,5 @@
 import { sendDataToServer } from '../../../services/send-data-to-server/sendDataToServer';
-import { useCheckbox, useRooms } from '../../../state/store';
+import { useCheckbox, useRooms } from '../../../state/state';
 
 import style from './Header.module.scss'
 
