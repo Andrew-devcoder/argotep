@@ -4,32 +4,12 @@
       "tableId": 1,
       "rows": [
         {
-          "name": "1",
-          "rowId": 1
+          "rowId": 1,
+          "name": "1"
         },
         {
-          "rowId": 2
-        },
-        {
-          "rowId": 3,
-          "name": ""
-        },
-        {
-          "rowId": 4
-        }
-      ]
-    },
-    {
-      "tableId": 2,
-      "rows": [
-        {
-          "rowId": 1
-        },
-        {
-          "rowId": 2
-        },
-        {
-          "rowId": 3
+          "rowId": 2,
+          "name": "2"
         }
       ]
     }

@@ -15,14 +15,14 @@ export const useCheckbox = create((set) => ({
 }));
 
 
-export const useTables = create((set) => ({
+export const useRooms = create((set) => ({
 	array: [],
 
-	addTable: () => {
+	addNewRoom: () => {
 		set((state) => {
-			const newId = state.array.length + 1
+			// const newId = state.array.length + 1
 			const newTable = {
-				tableId: newId, rows: []
+				nameRoom: '', rows: []
 			}
 			return { array: [...state.array, newTable] }
 		})
@@ -41,7 +41,7 @@ export const useTables = create((set) => ({
 		})
 	},
 
-	deleteTable: (tableId) => {
+	delRoom: (tableId) => {
 		set((state) => {
 			const updatedArray = state.array.filter((table) => table.tableId !== tableId)
 
@@ -54,7 +54,7 @@ export const useTables = create((set) => ({
 		})
 	},
 
-	deleteRow: (tableId, rowId) => {
+	delRow: (tableId, rowId) => {
 		set((state) => {
 			const updatedArray = state.array.map((table) => {
 				if (table.tableId === tableId) {

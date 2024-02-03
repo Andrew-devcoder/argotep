@@ -1,13 +1,12 @@
-import { useContext, useDeferredValue, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { useRooms } from "../../../../state/store"
+import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer";
 import { RowList } from "../../row/row-list/RowList"
-import { useTables } from "../../../../state/store"
 
 import style from './NewTable.module.scss'
-import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer";
 
 const NewTable = ({ table }) => {
-	const { addRow, array, deleteTable } = useTables();
-
+	const { addRow, array, delRoom } = useRooms();
 	const [rows, setRows] = useState([]);
 
 	useEffect(() => {
@@ -18,9 +17,9 @@ const NewTable = ({ table }) => {
 	}, [array, table.tableId]);
 
 	const sendData = async () => {
-		await deleteTable(table.tableId)
+		await delRoom(table.tableId)
 
-		useTables.setState((state) => {
+		useRooms.setState((state) => {
 			console.log(state, state.array)
 			sendDataToServer(state.array)
 			setRows([]);
@@ -33,8 +32,12 @@ const NewTable = ({ table }) => {
 	return (
 		<>
 			<header className={style.header}>
-				<h2>hi mom {table.tableId} </h2>
+				{/* <h2>hi mom {table.tableId} </h2>	 */}
 				{/* imput -> name table */}
+				<input
+					type="text"
+					placeholder="Name room"
+				/>
 				<button onClick={() => sendData()}>delete table</button>
 				<button onClick={() => addRow(table)}>+</button>
 			</header>

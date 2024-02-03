@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { NewRow } from "../new-row/NewRow";
-import { useTables } from "../../../../state/store";
+import { useRooms } from "../../../../state/store";
 import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
 
 import style from './RowList.module.scss'
 
 const RowList = ({ row, tableId }) => {
 
-	const { array, deleteRow } = useTables()
+	const { array, delRow } = useRooms()
 
 	useEffect(() => {
 		console.log(array)
@@ -22,16 +22,16 @@ const RowList = ({ row, tableId }) => {
 	const sendData = async () => {
 
 		console.log('масив який в нас є:', array, '; з якої таблиці ми видаляємо рядок: ', tableId, '; id рядка який ми видаляємо: ', row.rowId);
-		await deleteRow(tableId, row.rowId);
+		await delRow(tableId, row.rowId);
 
 		reload()
-		// console.log('не розумію чому масив залишився таким самим як і до видалення рядка  after deleteRow???:', array, tableId, row.rowId);
+		// console.log('не розумію чому масив залишився таким самим як і до видалення рядка  after delRow???:', array, tableId, row.rowId);
 	}
 
 	const reload = () => {
 		console.log('reload')
 
-		useTables.setState((state) => {
+		useRooms.setState((state) => {
 			console.log('ось цей стан масиву ми передаємо до серверу :', state.array);
 			sendDataToServer(state.array);
 			return state;

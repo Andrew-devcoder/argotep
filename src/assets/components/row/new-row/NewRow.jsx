@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useSyncExternalStore } from "react"
 import { CatName } from "../../room/cat-name/CatName"
 import { CatBreed } from "../../room/cat-breed/CatBreed"
 import { CatAge } from "../../room/cat-age/CatAge"
@@ -6,7 +6,7 @@ import { CateDate } from "../../room/cat-date/CatDate"
 import { CatFact } from "../../room/cat-fact/CatFact"
 
 import style from './NewRow.module.scss'
-import { useTables } from "../../../../state/store"
+import { useRooms } from "../../../../state/store"
 import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
 
 const NewRow = ({ row, upDateRowsList }) => {
@@ -15,7 +15,7 @@ const NewRow = ({ row, upDateRowsList }) => {
 	const [timer, setTimer] = useState(null);
 
 	const { rowId } = row
-	const { updateRowName, array } = useTables()
+	const { updateRowName, array } = useRooms()
 
 	const handleNameChange = (newName) => {
 		row.name = newName
