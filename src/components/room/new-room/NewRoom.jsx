@@ -29,21 +29,20 @@ const NewRoom = ({ room, index }) => {
 
 	const handleBlur = () => {
 		sendDataToServer(array)
-		console.log('handle blur')
 	};
 
-	const updatedRow = { ...room, nameRoom: name }
+	const updatedRoom = { ...room, nameRoom: name }
 
 	return (
 		<>
 			<header className={style.header}>
-				<NameRoom room={updatedRow} setName={handleNameChange} onBlur={handleBlur} />
+				<NameRoom room={updatedRoom} setName={handleNameChange} onBlur={handleBlur} />
 
 				<button onClick={() => removeRoom(index)}>delete room</button>
 				<button onClick={() => addRow(room)}>+</button>
 			</header>
 
-			<RowList rows={rows} />
+			<RowList rows={rows} roomIndex={index} />
 
 			{/* {rows.map((row) => (
 				<div key={`row-${Math.floor(Math.random() * 10000)}`}>

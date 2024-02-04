@@ -11,8 +11,7 @@ const NewRow = ({ row, upDateRowsList, index }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
 	const [name, setName] = useState(row.name)
 
-	const { rowId } = row
-	const { updateRowName, array, updateRowData } = useRooms()
+	const { array, updateRowData } = useRooms()
 
 	const handleNameChange = (newName) => {
 		row.name = newName
@@ -20,25 +19,23 @@ const NewRow = ({ row, upDateRowsList, index }) => {
 	};
 
 	const handleBlur = () => {
-		updateRowName(row.rowId, name);
-		upDateRowsList();
+		sendDataToServer(array)
 	};
 
 	const handleChange = () => {
 		updateRowData(row, selectedDate.toLocaleDateString())
-		console.log(updateRowData)
-		console.log(array)
-		console.log(row.rowId, selectedDate.toLocaleDateString())
+		// console.log(updateRowData)
+		// console.log(array)
+		// console.log(row.rowId, selectedDate.toLocaleDateString())
 	}
 
-	// const updatedRow = { ...row, name }; // Create a new object with updated name
-	// console.log('test', updatedRow, 'перевірка всього масива в стейте :', array);
+	const updatedRow = { ...row, name };
 
 	return (
 		<>
 			<div className={style.wrapper}>
 				<p>{index + 1}. </p>
-				<CatName row={row} setName={handleNameChange} onBlur={handleBlur} />
+				<CatName row={updatedRow} setName={handleNameChange} onBlur={handleBlur} />
 				{/* <CatBreed handleChange={handleChange} state={state} /> */}
 				{/* <CatAge handleChange={handleChange} state={state} /> */}
 				{/* <CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} /> */}

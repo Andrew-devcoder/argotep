@@ -5,9 +5,11 @@ import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 import style from './RowList.module.scss'
 
-const RowList = ({ rows }) => {
+const RowList = ({ rows, roomIndex }) => {
 
 	const { array, delRow, removeRow } = useRooms()
+
+	console.log(roomIndex)
 
 	useEffect(() => {
 		console.log(array)
