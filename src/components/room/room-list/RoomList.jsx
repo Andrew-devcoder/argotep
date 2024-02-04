@@ -9,8 +9,8 @@ const RoomList = () => {
 	return (
 		<>
 			<div className={style.wrapper}>
-				{array?.map((room) => (
-					<NewRoom key={Math.floor(Math.random() * 10000)} room={room} />
+				{array?.map((room, index) => (
+					<NewRoom key={Math.floor(Math.random() * 10000)} room={room} index={index} />
 				))}
 			</div>
 		</>

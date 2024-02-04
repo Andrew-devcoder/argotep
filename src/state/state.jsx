@@ -77,6 +77,25 @@ export const useRooms = create((set) => ({
 		})
 	},
 
+	removeRoom: (index) => {
+		set((state) => {
+			const updatedArray = state.array.filter((_, i) => i !== index);
+			return { array: updatedArray };
+		});
+	},
+
+
+	removeRow: (rowId) => {
+		set((state) => {
+			const updatedArray = state.array.map((room) => {
+				const updatedRows = room.rows.filter((row) => row.rowId !== rowId);
+				return { ...room, rows: updatedRows };
+			});
+			return { array: updatedArray };
+		});
+	},
+
+
 	updateRoomName: (newName, room) => {
 		set((state) => {
 			const updatedArray = state.array.map((prevRoom) => {
@@ -91,47 +110,26 @@ export const useRooms = create((set) => ({
 	},
 
 
-	updateRowName: (tableId, rowId, name) => {
+	updateRowName: (rowId, name) => {
 		set((state) => {
 			const updatedArray = state.array.map((table) => {
-				if (table.tableId === tableId) {
-					const updatedRows = table.rows.map((row) => {
-						if (row.rowId === rowId) {
-							const newRows = { ...row, name }
-							console.log("begin update row name:", newRows)
-							return newRows;
-						}
-						return row;
-					});
-					return { ...table, rows: updatedRows };
-				}
-				return table;
+				const updatedRows = table.rows.map((row) => {
+					if (row.rowId === rowId) {
+						const newRows = { ...row, name }
+						console.log("begin update row name:", newRows)
+						return newRows;
+					}
+					return row;
+				});
+				return { ...table, rows: updatedRows };
 			});
 			return { array: updatedArray };
 		});
 	},
+
+	updateRowData: (row, date) => {
+		set(() => {
+			row.date = date
+		})
+	}
 }))
-
-// export const useServer = create((set) => ({
-
-// 	saveServer: async (array) => {
-// 		try {
-// 			const sendData = { array: [...array] };
-// 			const response = await fetch('http://localhost:3001/saveData', {
-// 				method: 'POST',
-// 				headers: {
-// 					'Content-Type': 'application/json',
-// 				},
-// 				body: JSON.stringify(sendData),
-// 			});
-
-// 			if (response.ok) {
-// 				console.log('Data saved successfully!');
-// 			} else {
-// 				console.error('Failed to save data.');
-// 			}
-// 		} catch (error) {
-// 			console.error('Error while saving data:', error);
-// 		}
-// 	},
-// }));

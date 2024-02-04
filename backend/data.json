@@ -5,15 +5,30 @@
       "rows": [
         {
           "rowId": 1,
+          "name": "12"
+        },
+        {
+          "rowId": 2,
           "name": "2"
         }
-      ],
-      "id": 1
+      ]
     },
     {
-      "nameRoom": "asd",
-      "rows": [],
-      "id": 2
+      "nameRoom": "",
+      "rows": [
+        {
+          "rowId": 1,
+          "name": "12"
+        },
+        {
+          "rowId": 2,
+          "name": "2"
+        },
+        {
+          "rowId": 3,
+          "name": "3"
+        }
+      ]
     }
   ]
 }

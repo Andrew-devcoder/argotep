@@ -5,8 +5,9 @@ import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 import style from './RowList.module.scss'
 
-const RowList = ({ row, tableId }) => {
-	const { array, delRow } = useRooms()
+const RowList = ({ rows }) => {
+
+	const { array, delRow, removeRow } = useRooms()
 
 	useEffect(() => {
 		console.log(array)
@@ -30,11 +31,22 @@ const RowList = ({ row, tableId }) => {
 	return (
 		<>
 			<div className={style.wrapper}>
-				<NewRow row={row} upDateRowsList={() => reload()} />
+				{rows?.map((row, index) => (
 
-				<button onClick={() => {
+					<div div key={`row-${Math.floor(Math.random() * 10000)}`}>
+						<NewRow row={row} index={index} upDateRowsList={() => reload()} />
+						<button onClick={() => {
+							removeRow(row.rowId)
+						}}>del</button>
+
+					</div>
+				))}
+
+				{/* <NewRow row={row} upDateRowsList={() => reload()} /> */}
+
+				{/* <button onClick={() => {
 					sendData()
-				}}>del</button>
+				}}>del</button> */}
 			</div >
 		</>
 	)

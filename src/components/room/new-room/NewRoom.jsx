@@ -6,9 +6,10 @@ import { RowList } from "../../row/row-list/RowList"
 import style from './NewRoom.module.scss'
 import { NameRoom } from "../name-room/NameRoom";
 
-const NewRoom = ({ room }) => {
-	const { addRow, array, delRoom } = useRooms();
+const NewRoom = ({ room, index }) => {
+	const { addRow, array, delRoom, removeRoom } = useRooms();
 	const [name, setName] = useState(room.nameRoom)
+	console.log(room)
 
 	const { rows } = room
 
@@ -38,15 +39,17 @@ const NewRoom = ({ room }) => {
 			<header className={style.header}>
 				<NameRoom room={updatedRow} setName={handleNameChange} onBlur={handleBlur} />
 
-				<button onClick={() => remove()}>delete room</button>
+				<button onClick={() => removeRoom(index)}>delete room</button>
 				<button onClick={() => addRow(room)}>+</button>
 			</header>
 
-			{rows.map((row) => (
+			<RowList rows={rows} />
+
+			{/* {rows.map((row) => (
 				<div key={`row-${Math.floor(Math.random() * 10000)}`}>
 					<RowList row={row} tableId={room.tableId} />
 				</div>
-			))}
+			))} */}
 		</>
 	);
 };
