@@ -9,6 +9,7 @@ import { NameRoom } from "../name-room/NameRoom";
 const NewRoom = ({ room, index }) => {
 	const { addRow, array, delRoom, removeRoom } = useRooms();
 	const [name, setName] = useState(room.nameRoom)
+	const roomIndex = index.toString()
 	console.log(room)
 
 	const { rows } = room
@@ -42,7 +43,7 @@ const NewRoom = ({ room, index }) => {
 				<button onClick={() => addRow(room)}>+</button>
 			</header>
 
-			<RowList rows={rows} roomIndex={index} />
+			<RowList rows={rows} roomIndex={roomIndex} />
 
 			{/* {rows.map((row) => (
 				<div key={`row-${Math.floor(Math.random() * 10000)}`}>

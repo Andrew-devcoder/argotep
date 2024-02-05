@@ -34,13 +34,16 @@ const RowList = ({ rows, roomIndex }) => {
 		<>
 			<div className={style.wrapper}>
 				{rows?.map((row, index) => {
-					const newRowIndex = index * roomIndex;
+					const rowIndex = index.toString()
+					const newRowIndex = rowIndex + roomIndex;
+					console.log(newRowIndex)
 					return (
 						<div div key={`row-${Math.floor(Math.random() * 10000)}`}>
 
-							<NewRow row={row} newRowIndex={index} upDateRowsList={() => reload()} />
+							<NewRow row={row} index={index} upDateRowsList={() => reload()} />
+
 							<button onClick={() => {
-								removeRow(row.rowId)
+								removeRow(newRowIndex)
 							}}>del</button>
 
 						</div>

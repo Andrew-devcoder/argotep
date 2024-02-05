@@ -4,12 +4,10 @@
       "nameRoom": "",
       "rows": [
         {
-          "rowId": 1,
-          "name": "12"
+          "rowId": 3
         },
         {
-          "rowId": 2,
-          "name": "2"
+          "rowId": 3
         }
       ]
     },
@@ -17,16 +15,7 @@
       "nameRoom": "",
       "rows": [
         {
-          "rowId": 1,
-          "name": "12"
-        },
-        {
-          "rowId": 2,
-          "name": "2"
-        },
-        {
-          "rowId": 3,
-          "name": "3"
+          "rowId": 2
         }
       ]
     }

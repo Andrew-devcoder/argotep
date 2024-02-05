@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 
 import style from './NewRow.module.scss'
 import { useRooms } from "../../../state/state"
-// import { sendDataToServer } from "../../../../services/send-data-to-server/sendDataToServer"
 import { CatName } from "../../cat/cat-name/CatName"
 import { CateDate } from "../../cat/cat-date/CatDate"
+import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 const NewRow = ({ row, upDateRowsList, index }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())

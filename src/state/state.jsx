@@ -85,15 +85,21 @@ export const useRooms = create((set) => ({
 	},
 
 
-	removeRow: (rowId) => {
+	removeRow: (checkIndex) => {
 		set((state) => {
-			const updatedArray = state.array.map((room) => {
-				const updatedRows = room.rows.filter((row) => row.rowId !== rowId);
+			const updatedArray = state.array.map((room, index) => {
+				const roomIndex = index.toString();
+				const updatedRows = room.rows.filter((row) => {
+					const rowIndex = row.rowId.toString();
+					const roomPlusRow = rowIndex + roomIndex;
+					return roomPlusRow !== checkIndex;
+				});
 				return { ...room, rows: updatedRows };
 			});
 			return { array: updatedArray };
 		});
 	},
+
 
 
 	updateRoomName: (newName, room) => {
