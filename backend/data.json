@@ -2,22 +2,7 @@
   "array": [
     {
       "nameRoom": "",
-      "rows": [
-        {
-          "rowId": 3
-        },
-        {
-          "rowId": 3
-        }
-      ]
-    },
-    {
-      "nameRoom": "",
-      "rows": [
-        {
-          "rowId": 2
-        }
-      ]
+      "rows": []
     }
   ]
 }
