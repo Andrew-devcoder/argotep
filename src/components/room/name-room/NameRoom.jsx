@@ -1,3 +1,5 @@
+import style from './NameRoom.module.scss'
+
 export const NameRoom = ({ room, setName, onBlur }) => {
 
 	const handleChange = (e) => {
@@ -8,6 +10,7 @@ export const NameRoom = ({ room, setName, onBlur }) => {
 	return (
 		<>
 			<input
+				className={style.inputName}
 				type="text"
 				placeholder="Name room"
 				onBlur={onBlur}

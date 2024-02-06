@@ -1,8 +1,6 @@
-import { useEffect, useRef } from 'react';
 import style from './CatName.module.scss'
 
 const CatName = ({ row, setName, onBlur }) => {
-
 	const handleChange = (e) => {
 		const inputValue = e.target.value;
 		setName(inputValue);
