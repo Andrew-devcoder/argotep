@@ -2,17 +2,18 @@ import { useState, useEffect } from "react"
 import { useRooms } from "../../../state/state"
 import { CatName } from "../../cat/cat-name/CatName"
 import { CateDate } from "../../cat/cat-date/CatDate"
+import { CatAge } from "../../cat/cat-age/CatAge"
 import { sendDataToServer } from "../../../services/data-server/dataServer"
 
-import { parseISO } from 'date-fns';
-
 import style from './NewRow.module.scss'
+import { CatBreed } from "../../cat/cat-breed/CatBreed"
+import { CatFact } from "../../cat/cat-fact/CatFact"
 
-const NewRow = ({ row, upDateRowsList, index }) => {
+const NewRow = ({ row, index }) => {
 	const [name, setName] = useState(row.name)
 	const [selectedDate, setSelectedDate] = useState(new Date())
 
-	const { array, updateRowData } = useRooms()
+	const { array } = useRooms()
 
 	const handleNameChange = (newName) => {
 		row.name = newName
@@ -33,13 +34,6 @@ const NewRow = ({ row, upDateRowsList, index }) => {
 		}
 	}, [])
 
-	// const handleChange = () => {
-	// 	updateRowData(row, selectedDate.toLocaleDateString())
-	// 	// console.log(updateRowData)
-	// 	// console.log(array)
-	// 	// console.log(row.rowId, selectedDate.toLocaleDateString())
-	// }
-
 	const handleChange = (date) => {
 		console.log(' its date ! ')
 		console.log(date)
@@ -50,7 +44,6 @@ const NewRow = ({ row, upDateRowsList, index }) => {
 			sendDataToServer(state.array)
 			return state
 		})
-		// updateRowData(row, date);
 	};
 
 	const updatedRow = { ...row, name };
@@ -59,22 +52,27 @@ const NewRow = ({ row, upDateRowsList, index }) => {
 		<>
 			<div className={style.wrapper}>
 				<p>{index + 1}. </p>
-				<CatName row={updatedRow} setName={handleNameChange} onBlur={handleBlur} />
-				{/* <CatBreed handleChange={handleChange} state={state} /> */}
-				{/* <CatAge handleChange={handleChange} state={state} /> */}
-				{/* <CateDate selectedDate={selectedDate} setSelectedDate={setSelectedDate} handleChange={(date) => handleChange(date, 'date')} /> */}
+				<CatName
+					row={updatedRow}
+					setName={handleNameChange}
+					onBlur={handleBlur}
+				/>
+				<CatBreed
+					row={row}
+					onBlur={handleBlur}
+				/>
+				<CatAge
+					row={row}
+					onBlur={handleBlur}
+				/>
 				<CateDate
 					selectedDate={selectedDate}
 					setSelectedDate={setSelectedDate}
 					handleChange={(date) => handleChange(date)}
 				/>
-				{/* <CatFact row={row} handleChange={handleChange} changeGetInfo={batya} /> */}
-				{/* <button onClick={checkState}>check state</button> */}
-				{/* <button onClick={sendDataToServer}>Відправити дані на сервер</button> */}
-
-				{/* <button onClick={testAddRow}> test add row </button> */}
-
-				{/* <button >delete</button> */}
+				<CatFact
+					row={row}
+				/>
 			</div>
 		</>
 	)
