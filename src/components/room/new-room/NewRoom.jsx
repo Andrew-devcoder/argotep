@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { useRooms } from "../../../state/state"
-import { sendDataToServer } from "../../../services/data-server/dataServer";
+import { NameRoom } from "../name-room/NameRoom";
 import { RowList } from "../../row/row-list/RowList"
+import { sendDataToServer } from "../../../services/data-server/dataServer";
 
 import style from './NewRoom.module.scss'
-import { NameRoom } from "../name-room/NameRoom";
 
 const NewRoom = ({ room, index }) => {
 	const { addRow, array, delRoom } = useRooms();

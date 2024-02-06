@@ -13,7 +13,6 @@ const RowList = ({ rows, roomIndex }) => {
 	}, [])
 
 	const reload = () => {
-		console.log('reload')
 		useRooms.setState((state) => {
 			console.log('ось цей стан масиву ми передаємо до серверу :', state.array);
 			sendDataToServer(state.array);
@@ -21,12 +20,16 @@ const RowList = ({ rows, roomIndex }) => {
 		});
 	}
 
+	// чи є сенс змінити newRowIndex без додавання `${rowIndex}${roomIndex}`
+	// тому що ми все ж таки об'єднуємо рядки, а не додаємо числа... 
+
 	return (
 		<>
 			<div className={style.wrapper}>
 				{rows?.map((row, index) => {
 					const rowIndex = index.toString()
 					const newRowIndex = rowIndex + roomIndex;
+					// const newRowIndex = `${rowIndex}${roomIndex}`;
 					return (
 						<div key={`row-${Math.floor(Math.random() * 10000)}`}>
 

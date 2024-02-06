@@ -4,10 +4,7 @@ import { useCheckbox, useRooms } from '../../state/state';
 import style from './Header.module.scss'
 
 const Header = () => {
-
-	// test for use new table 
 	const { addNewRoom } = useRooms()
-
 	const { box, setChecked, setDisabled } = useCheckbox()
 
 	const sendData = async () => {

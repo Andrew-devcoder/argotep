@@ -2,15 +2,12 @@ import { useEffect, useState } from 'react'
 import style from './CatBreed.module.scss'
 
 const CatBreed = ({ row, onBlur }) => {
-
 	const [value, setValue] = useState('')
 
 	useEffect(() => {
 		if (row.breed) {
-			console.log(true)
 			setValue(row.breed)
 		} else {
-			console.log(false)
 			setValue('')
 		}
 	}, [])

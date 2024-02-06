@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import { useRooms } from "../../../state/state"
 import { CatName } from "../../cat/cat-name/CatName"
-import { CateDate } from "../../cat/cat-date/CatDate"
+import { CatBreed } from "../../cat/cat-breed/CatBreed"
 import { CatAge } from "../../cat/cat-age/CatAge"
+import { CateDate } from "../../cat/cat-date/CatDate"
+import { CatFact } from "../../cat/cat-fact/CatFact"
 import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 import style from './NewRow.module.scss'
-import { CatBreed } from "../../cat/cat-breed/CatBreed"
-import { CatFact } from "../../cat/cat-fact/CatFact"
 
 const NewRow = ({ row, index }) => {
 	const [name, setName] = useState(row.name)
@@ -35,8 +35,6 @@ const NewRow = ({ row, index }) => {
 	}, [])
 
 	const handleChange = (date) => {
-		console.log(' its date ! ')
-		console.log(date)
 		row.date = date
 		setSelectedDate(date);
 
