@@ -13,7 +13,7 @@ const CatBreed = ({ row, onBlur }) => {
 	}, [])
 
 	const listBreedCats = [
-		{ breed: "" },
+		{ breed: "choose breed..." },
 		{ breed: "мейкун" },
 		{ breed: "сіамська" },
 		{ breed: "сфінкс" },
