@@ -9,7 +9,6 @@ import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 import { RiDeleteBinLine } from "react-icons/ri";
 
-
 import style from './NewRow.module.scss'
 
 const NewRow = ({ row, index, newRowIndex }) => {
@@ -48,7 +47,6 @@ const NewRow = ({ row, index, newRowIndex }) => {
 	};
 
 	const updatedRow = { ...row, name };
-
 
 	const [isHovered, setIsHovered] = useState(false);
 

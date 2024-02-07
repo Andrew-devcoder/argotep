@@ -3,11 +3,10 @@ import { NewRow } from "../new-row/NewRow";
 import { useRooms } from "../../../state/state";
 import { sendDataToServer } from "../../../services/data-server/dataServer"
 
-
 import style from './RowList.module.scss'
 
 const RowList = ({ rows, roomIndex }) => {
-	const { array, delRow } = useRooms()
+	const { array } = useRooms()
 
 	useEffect(() => {
 		sendDataToServer(array);
@@ -24,9 +23,6 @@ const RowList = ({ rows, roomIndex }) => {
 	// чи є сенс змінити newRowIndex без додавання `${rowIndex}${roomIndex}`
 	// тому що ми все ж таки об'єднуємо рядки, а не додаємо числа... 
 
-
-
-
 	return (
 		<>
 			<div className={style.wrapper}  >
@@ -37,16 +33,7 @@ const RowList = ({ rows, roomIndex }) => {
 					return (
 						<div key={`row-${Math.floor(Math.random() * 10000)}`} >
 
-							{/* <a
-								className={isHovered ? rowClassNames : style.iconRemoveRow}
-								onClick={() => {
-									delRow(newRowIndex)
-								}}
-							>
-								<RiDeleteBinLine />
-							</a> */}
 							<NewRow row={row} index={index} newRowIndex={newRowIndex} upDateRowsList={() => reload()} />
-
 
 						</div>
 					)
