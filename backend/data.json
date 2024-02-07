@@ -4,12 +4,21 @@
       "nameRoom": "asd",
       "rows": [
         {
-          "date": "06.02.2024",
-          "fact": " A cat only has the ability to move their jaw up and down, not side to side like a human can."
+          "date": "07.02.2024",
+          "fact": "Edward Lear, author of \\The Owl and the Pussycat\\\"\", is said to have had his new house in San Remo built to exactly the same specification as his previous residence, so that his much-loved tabby, Foss, would immediately feel at home.\"\"\""
         },
         {
-          "date": "06.02.2024",
-          "fact": "The first cat in space was a French cat named Felicette (a.k.a. “Astrocat”) In 1963, France blasted the cat into outer space. Electrodes implanted in her brains sent neurological signals back to Earth. She survived the trip."
+          "date": "07.02.2024",
+          "fact": "A group of cats is called a clowder."
+        }
+      ]
+    },
+    {
+      "nameRoom": "",
+      "rows": [
+        {
+          "date": "07.02.2024",
+          "fact": "A commemorative tower was built in Scotland for a cat named Towser, who caught nearly 30,000 mice in her lifetime."
         }
       ]
     }

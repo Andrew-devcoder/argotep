@@ -7,13 +7,16 @@ import { CateDate } from "../../cat/cat-date/CatDate"
 import { CatFact } from "../../cat/cat-fact/CatFact"
 import { sendDataToServer } from "../../../services/data-server/dataServer"
 
+import { RiDeleteBinLine } from "react-icons/ri";
+
+
 import style from './NewRow.module.scss'
 
-const NewRow = ({ row, index }) => {
+const NewRow = ({ row, index, newRowIndex }) => {
 	const [name, setName] = useState(row.name)
 	const [selectedDate, setSelectedDate] = useState(new Date())
 
-	const { array } = useRooms()
+	const { array, delRow } = useRooms()
 
 	const handleNameChange = (newName) => {
 		row.name = newName
@@ -46,9 +49,32 @@ const NewRow = ({ row, index }) => {
 
 	const updatedRow = { ...row, name };
 
+
+	const [isHovered, setIsHovered] = useState(false);
+
+	const handleMouseEnter = () => {
+		setIsHovered(true)
+	}
+
+	const handleMouseLeave = () => {
+		setIsHovered(false)
+	}
+
+	const rowClassNames = `${style.iconRemoveRow} ${style.iconOpacity}`;
+
 	return (
 		<>
-			<div className={style.wrapper}>
+			<div className={style.wrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+
+				<a
+					className={isHovered ? rowClassNames : style.iconRemoveRow}
+					onClick={() => {
+						delRow(newRowIndex)
+					}}
+				>
+					<RiDeleteBinLine />
+				</a>
+
 				<p>{index + 1}. </p>
 				<CatName
 					row={updatedRow}

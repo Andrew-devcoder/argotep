@@ -1,9 +1,29 @@
 .wrapper {
     display: block;
+    position: relative;
 
     & p {
         display: inline-block;
         min-width: 26px;
         margin: 0;
+    }
+}
+
+.iconRemoveRow {
+    color: white;
+    opacity: 0;
+    position: absolute;
+    top: 2px;
+    left: -40px;
+
+    transition: all 0.4s ease;
+
+    &:hover {
+        color: red;
+        cursor: pointer;
+    }
+
+    &.iconOpacity {
+        opacity: 1;
     }
 }

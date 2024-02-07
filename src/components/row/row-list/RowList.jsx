@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NewRow } from "../new-row/NewRow";
 import { useRooms } from "../../../state/state";
 import { sendDataToServer } from "../../../services/data-server/dataServer"
+
 
 import style from './RowList.module.scss'
 
@@ -23,21 +24,29 @@ const RowList = ({ rows, roomIndex }) => {
 	// чи є сенс змінити newRowIndex без додавання `${rowIndex}${roomIndex}`
 	// тому що ми все ж таки об'єднуємо рядки, а не додаємо числа... 
 
+
+
+
 	return (
 		<>
-			<div className={style.wrapper}>
+			<div className={style.wrapper}  >
 				{rows?.map((row, index) => {
 					const rowIndex = index.toString()
 					const newRowIndex = rowIndex + roomIndex;
 					// const newRowIndex = `${rowIndex}${roomIndex}`;
 					return (
-						<div key={`row-${Math.floor(Math.random() * 10000)}`}>
+						<div key={`row-${Math.floor(Math.random() * 10000)}`} >
 
-							<NewRow row={row} index={index} upDateRowsList={() => reload()} />
+							{/* <a
+								className={isHovered ? rowClassNames : style.iconRemoveRow}
+								onClick={() => {
+									delRow(newRowIndex)
+								}}
+							>
+								<RiDeleteBinLine />
+							</a> */}
+							<NewRow row={row} index={index} newRowIndex={newRowIndex} upDateRowsList={() => reload()} />
 
-							<button onClick={() => {
-								delRow(newRowIndex)
-							}}>del</button>
 
 						</div>
 					)

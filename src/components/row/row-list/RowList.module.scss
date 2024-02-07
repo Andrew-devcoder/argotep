@@ -5,6 +5,8 @@
     align-items: start;
     padding: 5px 0 20px 10px;
 
+    position: relative;
+
     & > div {
         padding: 2px 0;
 
@@ -38,5 +40,24 @@
 
     & input[type="date"] {
         min-width: max-content;
+    }
+}
+
+.iconRemoveRow {
+    color: white;
+    opacity: 1;
+    position: absolute;
+    top: 10px;
+    left: -20px;
+
+    transition: all 0.4s ease;
+
+    &:hover {
+        color: grey;
+        cursor: pointer;
+    }
+
+    &.iconOpacity {
+        opacity: 1;
     }
 }
