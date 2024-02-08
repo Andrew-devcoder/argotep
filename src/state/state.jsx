@@ -14,6 +14,18 @@ export const useCheckbox = create((set) => ({
 	},
 }));
 
+export const useTheme = create((set) => ({
+	theme: "dark",
+
+	setIsLight: () => {
+		set(() => ({ theme: "light" }))
+	},
+
+	setIsDark: () => {
+		set(() => ({ theme: "dark" }))
+	}
+}))
+
 
 export const useRooms = create((set) => ({
 	array: [],

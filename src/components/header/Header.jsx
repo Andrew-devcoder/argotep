@@ -1,11 +1,20 @@
 import { sendDataToServer } from '../../services/data-server/dataServer';
-import { useCheckbox, useRooms } from '../../state/state';
+import { useCheckbox, useRooms, useTheme } from '../../state/state';
 
 import style from './Header.module.scss'
 
-const Header = ({ isChecked, handleChangeMode }) => {
+const Header = ({ }) => {
 	const { addNewRoom } = useRooms()
 	const { box, setChecked, setDisabled } = useCheckbox()
+	const { setIsLight, setIsDark, theme } = useTheme()
+
+	const handleChangeMode = () => {
+		if (theme === 'dark') {
+			setIsLight()
+		} else {
+			setIsDark()
+		}
+	}
 
 	const sendData = async () => {
 		await addNewRoom()
@@ -49,7 +58,7 @@ const Header = ({ isChecked, handleChangeMode }) => {
 							name="theme"
 							id="theme"
 							onChange={handleChangeMode}
-							checked={isChecked}
+							checked={theme === 'dark'}
 						/>
 						<label htmlFor="check">dark mode</label>
 					</div>

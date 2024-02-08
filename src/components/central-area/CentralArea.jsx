@@ -1,13 +1,11 @@
 import { useEffect } from "react";
-import { useRooms } from "../../state/state";
+import { useRooms, useTheme } from "../../state/state";
 import { getDataFromServer } from "../../services/data-server/dataServer";
 import { Header } from "../header/Header"
 import { RoomList } from "../room/room-list/RoomList";
-import { useState } from "react";
 
 const CentralArea = () => {
-
-	const [isDark, setIsDark] = useState(true)
+	const { theme } = useTheme()
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -25,8 +23,8 @@ const CentralArea = () => {
 
 	return (
 		<>
-			<div data-theme={isDark ? "dark" : "light"}>
-				<Header isChecked={isDark} handleChangeMode={() => setIsDark(!isDark)} />
+			<div data-theme={theme}>
+				<Header />
 				<RoomList />
 			</div>
 		</>
