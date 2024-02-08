@@ -3,7 +3,7 @@ import { useCheckbox, useRooms } from '../../state/state';
 
 import style from './Header.module.scss'
 
-const Header = () => {
+const Header = ({ isChecked, handleChangeMode }) => {
 	const { addNewRoom } = useRooms()
 	const { box, setChecked, setDisabled } = useCheckbox()
 
@@ -16,6 +16,8 @@ const Header = () => {
 			return state
 		})
 	}
+
+
 
 	return (
 		<>
@@ -39,6 +41,17 @@ const Header = () => {
 					<div>
 						<input type='checkbox' id='kittens' name='kittens'></input>
 						<label htmlFor="kittens">kittens</label>
+					</div>
+
+					<div>
+						<input
+							type="checkbox"
+							name="theme"
+							id="theme"
+							onChange={handleChangeMode}
+							checked={isChecked}
+						/>
+						<label htmlFor="check">dark mode</label>
 					</div>
 				</div>
 
