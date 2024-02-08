@@ -1,16 +1,14 @@
 import { create } from 'zustand';
 
-export const useCheckbox = create((set) => ({
-	box: false,
+export const useDateToday = create((set) => ({
+	today: false,
 
 	setChecked: () => {
-		set(() => ({ box: true }))
-		console.log('true')
+		set(() => ({ today: new Date() }))
 	},
 
 	setDisabled: () => {
-		set(() => ({ box: false }))
-		console.log('false')
+		set(() => ({ today: false }))
 	},
 }));
 

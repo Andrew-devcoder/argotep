@@ -1,11 +1,11 @@
 import { sendDataToServer } from '../../services/data-server/dataServer';
-import { useCheckbox, useRooms, useTheme } from '../../state/state';
+import { useDateToday, useRooms, useTheme } from '../../state/state';
 
 import style from './Header.module.scss'
 
-const Header = ({ }) => {
+const Header = () => {
 	const { addNewRoom } = useRooms()
-	const { box, setChecked, setDisabled } = useCheckbox()
+	const { today, setChecked, setDisabled } = useDateToday()
 	const { setIsLight, setIsDark, theme } = useTheme()
 
 	const handleChangeMode = () => {
@@ -40,8 +40,8 @@ const Header = ({ }) => {
 							type='checkbox'
 							id='today'
 							name='today'
-							checked={box}
-							onChange={() => (box ? setDisabled() : setChecked())}
+							checked={today}
+							onChange={() => (today ? setDisabled() : setChecked())}
 						>
 						</input>
 						<label htmlFor="today">today</label>

@@ -4,12 +4,19 @@
       "nameRoom": "",
       "rows": [
         {
-          "date": "2023-10-03T21:00:00.000Z",
-          "fact": "Owning a cat is actually proven to be beneficial for your health.",
-          "name": "name ",
-          "breed": "сіамська",
-          "age": "12"
-        }
+          "fact": "Cats eat grass to aid their digestion and to help them get rid of any fur in their stomachs.",
+          "date": "2024-02-10"
+        },
+        {
+          "date": "2024-02-08",
+          "fact": "In the 1750s, Europeans introduced cats into the Americas to control pests."
+        },
+        {
+          "date": "2024-02-08",
+          "fact": "The average cat can jump 8 feet in a single bound, nearly six times its body length!"
+        },
+        {},
+        {}
       ]
     }
   ]

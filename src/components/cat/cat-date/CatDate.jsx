@@ -11,17 +11,25 @@ const CateDate = ({ row, onBlur }) => {
 			const formattedDate = new Date(row.date);
 			setSelectedDate(formattedDate);
 		} else {
-			setSelectedDate(new Date())
-			const date = selectedDate.toLocaleDateString()
-			row.date = date
-			onBlur()
+			setSelectedDate(new Date());
+			const formattedDate = formatDate(new Date());
+			row.date = formattedDate;
+			onBlur();
 		}
-	}, [])
+	}, []);
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
-		row.date = date
-		onBlur()
+		const formattedDate = formatDate(date);
+		row.date = formattedDate;
+		onBlur();
+	};
+
+	const formatDate = (date) => {
+		const year = date.getFullYear();
+		const month = (date.getMonth() + 1).toString().padStart(2, '0');
+		const day = date.getDate().toString().padStart(2, '0');
+		return `${year}-${month}-${day}`;
 	};
 
 	return (
