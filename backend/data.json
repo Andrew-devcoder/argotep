@@ -1,27 +1,15 @@
 {
   "array": [
     {
-      "nameRoom": "ad",
+      "nameRoom": "",
       "rows": [
         {
-          "fact": "Cats eat grass to aid their digestion and to help them get rid of any fur in their stomachs.",
-          "date": "2024-02-10"
+          "date": "2024-02-08",
+          "fact": "Cats have 32 muscles that control the outer ear (compared to human's 6 muscles each). A cat can rotate its ears independently 180 degrees, and can turn in the direction of sound 10 times faster than those of the best watchdog."
         },
         {
-          "date": "2024-02-08",
-          "fact": "In the 1750s, Europeans introduced cats into the Americas to control pests."
-        },
-        {
-          "date": "2024-02-08",
-          "fact": "The average cat can jump 8 feet in a single bound, nearly six times its body length!"
-        },
-        {
-          "date": "2024-02-08",
-          "fact": "Abraham Lincoln loved cats. He had four of them while he lived in the White House."
-        },
-        {
-          "date": "2024-02-08",
-          "fact": "During the Middle Ages, cats were associated with withcraft, and on St. John’s Day, people all over Europe would stuff them into sacks and toss the cats into bonfires. On holy days, people celebrated by tossing cats from church towers."
+          "date": "2023-11-07",
+          "fact": "Cats control the outer ear using 32 muscles; humans use 6"
         }
       ]
     }

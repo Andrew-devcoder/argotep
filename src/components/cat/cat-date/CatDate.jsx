@@ -35,6 +35,7 @@ const CateDate = ({ row, onBlur }) => {
 	return (
 		<>
 			<DatePicker
+				dateFormat="dd/MM/yyyy"
 				closeOnScroll={true}
 				selected={selectedDate}
 				onChange={(date) => handleDateChange(date)}
