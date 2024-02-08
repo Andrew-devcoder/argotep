@@ -1,10 +1,27 @@
+import { useEffect } from 'react'
+import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const CateDate = ({ selectedDate, setSelectedDate, handleChange }) => {
+const CateDate = ({ row, onBlur }) => {
+	const [selectedDate, setSelectedDate] = useState(new Date())
+
+	useEffect(() => {
+		if (row.date) {
+			const formattedDate = new Date(row.date);
+			setSelectedDate(formattedDate);
+		} else {
+			setSelectedDate(new Date())
+			const date = selectedDate.toLocaleDateString()
+			row.date = date
+			onBlur()
+		}
+	}, [])
+
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
-		handleChange(date.toLocaleDateString(), 'date');
+		row.date = date
+		onBlur()
 	};
 
 	return (
@@ -12,7 +29,7 @@ const CateDate = ({ selectedDate, setSelectedDate, handleChange }) => {
 			<DatePicker
 				closeOnScroll={true}
 				selected={selectedDate}
-				onChange={handleDateChange}
+				onChange={(date) => handleDateChange(date)}
 			/>
 
 		</>

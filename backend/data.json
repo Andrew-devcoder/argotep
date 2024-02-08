@@ -1,3 +1,13 @@
 {
-  "array": []
+  "array": [
+    {
+      "nameRoom": "",
+      "rows": [
+        {
+          "date": "2024-08-30T21:00:00.000Z",
+          "fact": "Owning a cat is actually proven to be beneficial for your health."
+        }
+      ]
+    }
+  ]
 }
