@@ -1,5 +1,6 @@
 .inputName {
     max-width: 150px;
+    height: 16px;
     border-color: transparent;
     background-color: transparent;
     border-radius: 2px;
@@ -13,5 +14,15 @@
             rgb(133, 133, 133)
         );
         background-color: rgb(59, 59, 59);
+    }
+}
+
+[data-theme="light"] {
+    .inputName {
+        color: var(--fg-color-light);
+
+        &:hover {
+            background-color: white;
+        }
     }
 }
