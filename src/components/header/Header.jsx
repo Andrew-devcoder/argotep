@@ -1,5 +1,6 @@
 import { sendDataToServer } from '../../services/data-server/dataServer';
 import { useDateToday, useRooms, useTheme } from '../../state/state';
+import { ToggleTheme } from '../toggle-theme/ToggleTheme';
 
 import style from './Header.module.scss'
 
@@ -52,6 +53,9 @@ const Header = () => {
 						<label htmlFor="kittens">kittens</label>
 					</div>
 
+					<ToggleTheme />
+
+					{/* 
 					<div>
 						<input
 							type="checkbox"
@@ -61,7 +65,8 @@ const Header = () => {
 							checked={theme === 'dark'}
 						/>
 						<label htmlFor="check">dark mode</label>
-					</div>
+					</div> */}
+
 				</div>
 
 			</div>
