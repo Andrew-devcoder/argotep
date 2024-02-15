@@ -41,7 +41,7 @@ const NewRow = ({ row, index, newRowIndex }) => {
 
 	const [newColor, setNewColor] = useState('')
 
-	const handleGenNewColor = () => {
+	const handleGenNewColor = (theme) => {
 		const genNewColor = generationColor(theme)
 		setNewColor(genNewColor)
 	}

@@ -34,7 +34,7 @@ const CatFact = ({ row }) => {
 
 	return (
 		<>
-			<p>{fact}</p>
+			<div>{fact}</div>
 		</>
 	)
 }
