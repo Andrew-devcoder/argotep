@@ -27,8 +27,6 @@ const Header = () => {
 		})
 	}
 
-
-
 	return (
 		<>
 			<div className={style.wrapper}>
@@ -69,7 +67,7 @@ const Header = () => {
 
 				</div>
 
-			</div>
+			</div >
 		</>
 	)
 }
