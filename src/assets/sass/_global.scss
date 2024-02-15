@@ -28,6 +28,32 @@
     background-color: var(--bg-color-light);
     color: var(--fg-color-light);
     transition: background-color 0.4s ease-in-out;
+
+    & input,
+    select {
+        color: var(--fg-color-light);
+
+        &:focus {
+            background-color: rgb(227, 227, 227) !important;
+            outline: none;
+        }
+
+        &:hover {
+            background-color: rgb(227, 227, 227) !important;
+        }
+
+        &::placeholder {
+            color: var(--fg-color-light);
+        }
+
+        &[type="checkbox"] {
+            accent-color: rgb(245, 245, 245);
+        }
+    }
+
+    & a {
+        color: rgb(28, 28, 28);
+    }
 }
 
 #root {

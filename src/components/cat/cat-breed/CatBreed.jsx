@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import style from './CatBreed.module.scss'
+import { useTheme } from '../../../state/state'
 
 const CatBreed = ({ row, onBlur }) => {
 	const [value, setValue] = useState('')
+	const { theme } = useTheme()
+
 
 	useEffect(() => {
 		if (row.breed) {
@@ -28,14 +31,14 @@ const CatBreed = ({ row, onBlur }) => {
 
 	return (
 		<>
-			<select className={style.breed}
+			<select
+				data-theme={theme}
+				className={style.breed}
 				onChange={(e) => {
 					handleChange(e, 'select');
 				}}
 				value={value}
-
 				onBlur={onBlur}
-
 			>
 				{listBreedCats.map((item, index) => (
 					<option

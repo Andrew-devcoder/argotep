@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useRooms } from "../../../state/state"
 import { CatName } from "../../cat/cat-name/CatName"
 import { CatBreed } from "../../cat/cat-breed/CatBreed"
@@ -13,7 +13,6 @@ import style from './NewRow.module.scss'
 
 const NewRow = ({ row, index, newRowIndex }) => {
 	const [name, setName] = useState(row.name)
-
 	const { array, delRow } = useRooms()
 
 	const handleNameChange = (newName) => {
@@ -41,7 +40,11 @@ const NewRow = ({ row, index, newRowIndex }) => {
 
 	return (
 		<>
-			<div className={style.wrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+			<div
+				className={style.wrapper}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
+			>
 
 				<a
 					className={isHovered ? rowClassNames : style.iconRemoveRow}
