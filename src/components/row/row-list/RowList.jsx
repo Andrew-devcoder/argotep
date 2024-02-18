@@ -53,20 +53,18 @@ const RowList = ({ rows, roomIndex }) => {
 					}
 					//  проблема в тому що коли today checked то при додаванні ного row він не відображаться але додається 
 
-
-
-
 					return true;
+
 				}).map((row, index) => {
 					const rowIndex = index.toString()
 					const newRowIndex = rowIndex + roomIndex;
 					// const newRowIndex = `${rowIndex}${roomIndex}`;
 					return (
-						<div key={`row-${Math.floor(Math.random() * 10000)}`} >
+						// <div >
 
-							<NewRow row={row} index={index} newRowIndex={newRowIndex} upDateRowsList={() => reload()} />
+						<NewRow key={`row-${Math.floor(Math.random() * 10000)}`} row={row} index={index} newRowIndex={newRowIndex} upDateRowsList={() => reload()} />
 
-						</div>
+						// </div>
 					)
 				})}
 			</div >

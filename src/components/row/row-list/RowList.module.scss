@@ -12,13 +12,11 @@
         &:first-child {
             border-top-right-radius: 8px;
             border-top-left-radius: 8px;
-            overflow: hidden;
         }
 
         &:last-child {
             border-bottom-right-radius: 8px;
             border-bottom-left-radius: 8px;
-            // overflow: hidden;
         }
     }
 

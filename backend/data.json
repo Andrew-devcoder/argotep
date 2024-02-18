@@ -2,53 +2,11 @@
   "array": [
     {
       "nameRoom": "",
-      "rows": [
-        {
-          "date": "2023-02-09",
-          "fact": "Cats have 32 muscles that control the outer ear (compared to human's 6 muscles each). A cat can rotate its ears independently 180 degrees, and can turn in the direction of sound 10 times faster than those of the best watchdog.",
-          "name": "first name",
-          "breed": "мейкун",
-          "age": "1"
-        },
-        {
-          "date": "2024-02-10",
-          "fact": "The domestic cat is the only species able to hold its tail vertically while walking. You can also learn about your cat's present state of mind by observing the posture of his tail.",
-          "name": ""
-        },
-        {
-          "date": "2024-02-15",
-          "fact": "A happy cat holds her tail high and steady."
-        },
-        {
-          "date": "2024-02-15",
-          "fact": "The oldest cat to give birth was Kitty who, at the age of 30, gave birth to two kittens. During her life, she gave birth to 218 kittens."
-        }
-      ]
+      "rows": []
     },
     {
-      "nameRoom": "asd",
-      "rows": [
-        {
-          "date": "2024-02-06",
-          "fact": "The cat's tail is used to maintain balance."
-        },
-        {
-          "date": "2024-02-10",
-          "fact": "In 1987 cats overtook dogs as the number one pet in America."
-        },
-        {
-          "date": "2024-02-15",
-          "fact": "A cat can sprint at about thirty-one miles per hour."
-        },
-        {
-          "date": "2024-02-15",
-          "fact": "Cats have 32 muscles that control the outer ear (humans have only 6). A cat can independently rotate its ears 180 degrees."
-        },
-        {
-          "date": "2024-02-15",
-          "fact": "Tabby cats are thought to get their name from Attab, a district in Baghdad, now the capital of Iraq."
-        }
-      ]
+      "nameRoom": "",
+      "rows": []
     }
   ]
 }

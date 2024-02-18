@@ -12,6 +12,17 @@ const CentralArea = () => {
 			try {
 				const data = await getDataFromServer()
 				const dataArray = data.data.array
+				// dataArray.map((item)=>{
+				// if (item == "rows") {
+				// item.map((row) => {
+				// 	RowList.bgColor = genColor()
+
+				// })
+				// }
+
+				// })
+
+				console.log(dataArray)
 				useRooms.setState({ array: dataArray })
 			} catch (error) {
 				console.error("Error fetching data from server:", error);
@@ -20,6 +31,8 @@ const CentralArea = () => {
 
 		fetchData()
 	}, [])
+
+	//  func gen color array.map row -> add bg color 
 
 	return (
 		<>

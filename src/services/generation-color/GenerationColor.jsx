@@ -6,9 +6,9 @@ export const generationColor = (theme) => {
 	let a = 1
 
 	if (theme === 'dark') {
-		a = 0.6;
-	} else {
 		a = 1
+	} else {
+		a = 0.6;
 	}
 
 	return `rgb(${r}, ${g}, ${b}, ${a})`;
