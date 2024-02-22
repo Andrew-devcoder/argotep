@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useRooms } from "../../../state/state"
+import { useRooms, useTheme } from "../../../state/state"
 import { CatName } from "../../cat/cat-name/CatName"
 import { CatBreed } from "../../cat/cat-breed/CatBreed"
 import { CatAge } from "../../cat/cat-age/CatAge"
@@ -15,12 +15,24 @@ import { generationColor } from "../../../services/generation-color/GenerationCo
 const NewRow = ({ row, index, newRowIndex }) => {
 	const { array, delRow } = useRooms()
 	const [newColor, setNewColor] = useState('')
+	const { theme } = useTheme()
 
 	useEffect(() => {
 		if (!row.bgColor) {
 			row.bgColor = generationColor(theme)
 		}
 		setNewColor(row.bgColor)
+
+		if (theme == 'dark') {
+			const color = row.bgColor
+			const colorForDark = color.slice(0, -2) + "0.6)";
+			setNewColor(colorForDark)
+			console.log('dark now ', colorForDark);
+		} else {
+			const colorForDark = row.bgColor.replace(/(\d+(\.\d+)?)\s*$/, "2");
+			console.log('change theme to ligth', colorForDark)
+		}
+
 	}, [])
 
 	const handleBlur = () => {
