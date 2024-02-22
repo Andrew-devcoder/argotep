@@ -11,6 +11,7 @@ const Home = () => {
 		setSidebarOpen(isOpen);
 		console.log('click')
 	};
+
 	return (
 		<>
 			<div className={`${style.layout} ${sidebarOpen ? style.sidebarOpen : ''}`}>

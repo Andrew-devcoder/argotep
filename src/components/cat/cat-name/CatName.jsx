@@ -1,12 +1,23 @@
+import { useEffect, useState } from 'react';
 import { useTheme } from '../../../state/state';
 import style from './CatName.module.scss'
 
-const CatName = ({ row, setName, onBlur }) => {
+const CatName = ({ row, onBlur }) => {
+	const [name, setName] = useState(row.name)
 	const { theme } = useTheme()
+
+	useEffect(() => {
+		if (row.name) {
+			setName(row.name)
+		} else {
+			setName('')
+		}
+	}, [])
 
 	const handleChange = (e) => {
 		const inputValue = e.target.value;
 		setName(inputValue);
+		row.name = inputValue
 	};
 
 	return (
@@ -16,10 +27,8 @@ const CatName = ({ row, setName, onBlur }) => {
 				className={style.inputName}
 				placeholder="Name"
 				onBlur={onBlur}
-				onChange={(e) => {
-					handleChange(e, 'name')
-				}}
-				value={row.name || ''}
+				value={name}
+				onChange={handleChange}
 			/>
 		</>
 	)

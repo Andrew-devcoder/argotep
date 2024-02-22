@@ -13,19 +13,11 @@ import style from './NewRow.module.scss'
 import { generationColor } from "../../../services/generation-color/GenerationColor"
 
 const NewRow = ({ row, index, newRowIndex }) => {
-	const [name, setName] = useState(row.name)
 	const { array, delRow } = useRooms()
-
-	const handleNameChange = (newName) => {
-		row.name = newName
-		setName(newName);
-	};
 
 	const handleBlur = () => {
 		sendDataToServer(array)
 	};
-
-	const updatedRow = { ...row, name };
 
 	const [isHovered, setIsHovered] = useState(false);
 
@@ -69,8 +61,7 @@ const NewRow = ({ row, index, newRowIndex }) => {
 
 			<p>{index + 1}. </p>
 			<CatName
-				row={updatedRow}
-				setName={handleNameChange}
+				row={row}
 				onBlur={handleBlur}
 			/>
 			<CatBreed
@@ -82,8 +73,8 @@ const NewRow = ({ row, index, newRowIndex }) => {
 				onBlur={handleBlur}
 			/>
 			<CateDate
-				onBlur={handleBlur}
 				row={row}
+				onBlur={handleBlur}
 			/>
 			<CatFact
 				row={row}
