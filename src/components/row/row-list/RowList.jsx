@@ -60,11 +60,7 @@ const RowList = ({ rows, roomIndex }) => {
 					const newRowIndex = rowIndex + roomIndex;
 					// const newRowIndex = `${rowIndex}${roomIndex}`;
 					return (
-						// <div >
-
 						<NewRow key={`row-${Math.floor(Math.random() * 10000)}`} row={row} index={index} newRowIndex={newRowIndex} upDateRowsList={() => reload()} />
-
-						// </div>
 					)
 				})}
 			</div >

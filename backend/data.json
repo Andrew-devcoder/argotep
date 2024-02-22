@@ -22,7 +22,8 @@
         {
           "date": "2024-02-22",
           "fact": "A form of AIDS exists in cats.",
-          "bgColor": "rgb(29, 147, 15, 1)"
+          "bgColor": "rgb(29, 147, 15, 1)",
+          "name": "123"
         },
         {
           "date": "2024-02-22",

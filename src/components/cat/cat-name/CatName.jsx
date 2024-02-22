@@ -3,7 +3,7 @@ import { useTheme } from '../../../state/state';
 import style from './CatName.module.scss'
 
 const CatName = ({ row, onBlur }) => {
-	const [name, setName] = useState(row.name)
+	const [name, setName] = useState('')
 	const { theme } = useTheme()
 
 	useEffect(() => {
