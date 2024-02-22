@@ -3,6 +3,7 @@ import { useRooms, useTheme } from "../../state/state";
 import { getDataFromServer } from "../../services/data-server/dataServer";
 import { Header } from "../header/Header"
 import { RoomList } from "../room/room-list/RoomList";
+import { generationColor } from "../../services/generation-color/GenerationColor";
 
 const CentralArea = () => {
 	const { theme } = useTheme()
@@ -12,15 +13,12 @@ const CentralArea = () => {
 			try {
 				const data = await getDataFromServer()
 				const dataArray = data.data.array
-				// dataArray.map((item)=>{
-				// if (item == "rows") {
-				// item.map((row) => {
-				// 	RowList.bgColor = genColor()
 
-				// })
-				// }
-
-				// })
+				dataArray.some(room => room.rows.some(row => {
+					if (row.bgColor == undefined) {
+						row.bgColor = generationColor(theme)
+					}
+				}));
 
 				console.log(dataArray)
 				useRooms.setState({ array: dataArray })
@@ -31,8 +29,6 @@ const CentralArea = () => {
 
 		fetchData()
 	}, [])
-
-	//  func gen color array.map row -> add bg color 
 
 	return (
 		<>

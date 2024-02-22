@@ -14,6 +14,14 @@ import { generationColor } from "../../../services/generation-color/GenerationCo
 
 const NewRow = ({ row, index, newRowIndex }) => {
 	const { array, delRow } = useRooms()
+	const [newColor, setNewColor] = useState('')
+
+	useEffect(() => {
+		if (!row.bgColor) {
+			generationColor(theme)
+		}
+		setNewColor(row.bgColor)
+	}, [])
 
 	const handleBlur = () => {
 		sendDataToServer(array)
@@ -30,17 +38,6 @@ const NewRow = ({ row, index, newRowIndex }) => {
 	}
 
 	const rowClassNames = `${style.iconRemoveRow} ${style.iconOpacity}`;
-
-	const [newColor, setNewColor] = useState('')
-
-	const handleGenNewColor = (theme) => {
-		const genNewColor = generationColor(theme)
-		setNewColor(genNewColor)
-	}
-
-	useEffect(() => {
-		handleGenNewColor(theme)
-	}, [])
 
 	return (
 		<div

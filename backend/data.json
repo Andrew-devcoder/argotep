@@ -6,17 +6,35 @@
         {
           "date": "2024-02-22",
           "fact": "The Maine Coone is the only native American long haired breed.",
-          "name": "123"
+          "name": "123",
+          "bgColor": "rgb(230, 42, 55, 0.6)"
         },
         {
           "date": "2024-02-22",
-          "fact": "Cats are the world's most popular pets, outnumbering dogs by as many as three to one"
+          "fact": "Cats' eyes shine in the dark because of the tapetum, a reflective layer in the eye, which acts like a mirror.",
+          "bgColor": "rgb(222, 248, 192, 0.6)"
         }
       ]
     },
     {
       "nameRoom": "",
-      "rows": []
+      "rows": [
+        {
+          "date": "2024-02-22",
+          "fact": "A form of AIDS exists in cats.",
+          "bgColor": "rgb(29, 147, 15, 1)"
+        },
+        {
+          "date": "2024-02-22",
+          "fact": "A cat will tremble or shiver when it is extreme pain.",
+          "bgColor": "rgb(166, 236, 43, 1)"
+        },
+        {
+          "date": "2024-02-22",
+          "fact": "Smuggling a cat out of ancient Egypt was punishable by death. Phoenician traders eventually succeeded in smuggling felines, which they sold to rich people in Athens and other important cities.",
+          "bgColor": "rgb(20, 37, 177, 1)"
+        }
+      ]
     }
   ]
 }
