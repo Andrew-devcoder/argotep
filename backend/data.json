@@ -17,6 +17,16 @@
           "date": "2024-02-22",
           "fact": "The cat appears to be the only domestic companion animal not mentioned in the Bible.",
           "bgColor": "rgb(25, 91, 24, 1)"
+        },
+        {
+          "date": "2024-02-22",
+          "fact": "Not every cat gets \\high\\\" from catnip. Whether or not a cat responds to it depends upon a recessive gene: no gene\"",
+          "bgColor": "rgb(167, 1, 0, 1)"
+        },
+        {
+          "date": "2024-02-22",
+          "fact": "In 1987 cats overtook dogs as the number one pet in America.",
+          "bgColor": "rgb(208, 201, 125, 1)"
         }
       ]
     }

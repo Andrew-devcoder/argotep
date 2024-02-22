@@ -18,7 +18,7 @@ const NewRow = ({ row, index, newRowIndex }) => {
 
 	useEffect(() => {
 		if (!row.bgColor) {
-			generationColor(theme)
+			row.bgColor = generationColor(theme)
 		}
 		setNewColor(row.bgColor)
 	}, [])
