@@ -7,15 +7,6 @@ import style from './Header.module.scss'
 const Header = () => {
 	const { addNewRoom } = useRooms()
 	const { today, setChecked, setDisabled } = useDateToday()
-	const { setIsLight, setIsDark, theme } = useTheme()
-
-	const handleChangeMode = () => {
-		if (theme === 'dark') {
-			setIsLight()
-		} else {
-			setIsDark()
-		}
-	}
 
 	const sendData = async () => {
 		await addNewRoom()
@@ -52,18 +43,6 @@ const Header = () => {
 					</div>
 
 					<ToggleTheme />
-
-					{/* 
-					<div>
-						<input
-							type="checkbox"
-							name="theme"
-							id="theme"
-							onChange={handleChangeMode}
-							checked={theme === 'dark'}
-						/>
-						<label htmlFor="check">dark mode</label>
-					</div> */}
 
 				</div>
 

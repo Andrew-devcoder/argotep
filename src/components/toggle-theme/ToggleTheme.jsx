@@ -3,7 +3,6 @@ import style from './ToggleTheme.module.scss'
 
 const ToggleTheme = () => {
 	const { container, input } = style
-
 	const { setIsLight, setIsDark, theme } = useTheme()
 
 	const handleChangeMode = () => {
@@ -13,7 +12,6 @@ const ToggleTheme = () => {
 			setIsDark()
 		}
 	}
-
 
 	return (
 		<>

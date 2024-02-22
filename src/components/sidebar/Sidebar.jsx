@@ -5,16 +5,13 @@ import style from './Sidebar.module.scss'
 import { useTheme } from '../../state/state'
 
 const Sidebar = ({ onToggleSidebar }) => {
-
 	const [toggleSideBar, setToggleSideBar] = useState(false)
-
 	const { theme } = useTheme()
 
 	const handleButtonClick = () => {
 		setToggleSideBar(!toggleSideBar)
 		onToggleSidebar(!toggleSideBar);
 	}
-
 
 	return (
 		<>

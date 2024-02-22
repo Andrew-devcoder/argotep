@@ -1,10 +1,21 @@
+import { useEffect, useState } from 'react';
 import style from './NameRoom.module.scss'
 
-export const NameRoom = ({ room, setName, onBlur }) => {
+export const NameRoom = ({ room, onBlur }) => {
+	const [name, setName] = useState('')
+
+	useEffect(() => {
+		if (room.nameRoom) {
+			setName(room.nameRoom)
+		} else {
+			setName('')
+		}
+	}, [])
 
 	const handleChange = (e) => {
 		const inputValue = e.target.value;
 		setName(inputValue);
+		room.nameRoom = inputValue
 	};
 
 	return (
@@ -14,10 +25,8 @@ export const NameRoom = ({ room, setName, onBlur }) => {
 				type="text"
 				placeholder="Name room"
 				onBlur={onBlur}
-				onChange={(e) => {
-					handleChange(e, 'name')
-				}}
-				value={room.nameRoom || ''}
+				value={name}
+				onChange={handleChange}
 			/>
 		</>
 	)
