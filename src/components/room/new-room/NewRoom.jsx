@@ -10,6 +10,7 @@ const NewRoom = ({ room, index }) => {
 	const { addRow, array, delRoom } = useRooms();
 	const roomIndexStr = index.toString()
 	const { rows } = room
+	const { header, buttonDel, buttonAddRow } = style
 
 	const remove = async () => {
 		await delRoom(index)
@@ -25,14 +26,26 @@ const NewRoom = ({ room, index }) => {
 
 	return (
 		<>
-			<header className={style.header}>
+			<header className={header}>
 				<NameRoom
 					room={room}
 					onBlur={handleBlur}
 				/>
 
-				<button onClick={() => remove(index)}>delete room</button>
-				<button onClick={() => addRow(room)}>+</button>
+				<button
+					className={buttonDel}
+					onClick={() => remove(index)}
+				>
+					delete room
+				</button>
+
+				<button
+					className={buttonAddRow}
+					onClick={() => addRow(room)}
+				>
+					new row
+				</button>
+
 			</header>
 
 			<RowList rows={rows} roomIndex={roomIndexStr} />
