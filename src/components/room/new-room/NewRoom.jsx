@@ -8,7 +8,7 @@ import style from './NewRoom.module.scss'
 
 const NewRoom = ({ room, index }) => {
 	const { addRow, array, delRoom } = useRooms();
-	const roomIndex = index.toString()
+	const roomIndexStr = index.toString()
 	const { rows } = room
 
 	const remove = async () => {
@@ -35,7 +35,7 @@ const NewRoom = ({ room, index }) => {
 				<button onClick={() => addRow(room)}>+</button>
 			</header>
 
-			<RowList rows={rows} roomIndex={roomIndex} />
+			<RowList rows={rows} roomIndex={roomIndexStr} />
 		</>
 	);
 };

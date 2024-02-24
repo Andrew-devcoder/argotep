@@ -24,7 +24,12 @@ const ToggleTheme = () => {
 					onChange={handleChangeMode}
 					checked={theme === 'dark'}
 				/>
-				<label htmlFor="check">dark mode</label>
+				<label htmlFor="check">
+					{theme == 'dark' ?
+						'dark mode' :
+						'ligth mode'
+					}
+				</label>
 			</div>
 		</>
 	)

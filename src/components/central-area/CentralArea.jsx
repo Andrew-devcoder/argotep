@@ -20,7 +20,6 @@ const CentralArea = () => {
 					}
 				}));
 
-				console.log(dataArray)
 				useRooms.setState({ array: dataArray })
 			} catch (error) {
 				console.error("Error fetching data from server:", error);

@@ -12,7 +12,6 @@ const Header = () => {
 		await addNewRoom()
 
 		useRooms.setState((state) => {
-			console.log(state, state.array)
 			sendDataToServer(state.array)
 			return state
 		})
@@ -23,7 +22,8 @@ const Header = () => {
 			<div className={style.wrapper}>
 				<div className={style.nav}>
 
-					<button onClick={() => sendData()}>new room</button>
+					{/* <button onClick={() => sendData()}>new room</button> */}
+					<button onClick={sendData}>new room</button>
 
 					<div>
 						<input

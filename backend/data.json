@@ -5,11 +5,6 @@
       "rows": [
         {
           "date": "2024-02-22",
-          "fact": "A tiger's stripes are like fingerprints",
-          "bgColor": "rgb(179, 242, 23, 1)"
-        },
-        {
-          "date": "2024-02-22",
           "fact": "People who are allergic to cats are actually allergic to cat saliva or to cat dander. If the resident cat is bathed regularly the allergic people tolerate it better.",
           "bgColor": "rgb(126, 82, 238, 1)"
         },
@@ -27,6 +22,16 @@
           "date": "2024-02-22",
           "fact": "In 1987 cats overtook dogs as the number one pet in America.",
           "bgColor": "rgb(208, 201, 125, 1)"
+        },
+        {
+          "date": "2024-02-24",
+          "bgColor": "rgb(119, 50, 57, 1)",
+          "fact": "A cat has more bones than a human; humans have 206, and the cat - 230."
+        },
+        {
+          "date": "2024-02-24",
+          "bgColor": "rgb(96, 144, 29, 1)",
+          "fact": "A cats field of vision is about 185 degrees."
         }
       ]
     }
