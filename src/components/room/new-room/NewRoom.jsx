@@ -43,7 +43,7 @@ const NewRoom = ({ room, index }) => {
 					className={buttonAddRow}
 					onClick={() => addRow(room)}
 				>
-					new row
+					new cat
 				</button>
 
 			</header>

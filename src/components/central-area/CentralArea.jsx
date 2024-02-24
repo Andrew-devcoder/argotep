@@ -5,6 +5,8 @@ import { Header } from "../header/Header"
 import { RoomList } from "../room/room-list/RoomList";
 import { generationColor } from "../../services/generation-color/GenerationColor";
 
+import style from './CentralArea.module.scss'
+
 const CentralArea = () => {
 	const { theme } = useTheme()
 
@@ -31,7 +33,10 @@ const CentralArea = () => {
 
 	return (
 		<>
-			<div data-theme={theme}>
+			<div
+				data-theme={theme}
+				className={style.container}
+			>
 				<Header />
 				<RoomList />
 			</div>
