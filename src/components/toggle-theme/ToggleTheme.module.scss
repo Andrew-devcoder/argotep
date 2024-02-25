@@ -16,7 +16,6 @@
     & + label {
         display: flex;
         align-items: center;
-        color: red;
 
         &:before {
             content: "";
@@ -24,7 +23,7 @@
             height: 16px;
             width: 30px;
             border-radius: 8px;
-            background-color: rgb(18, 18, 18);
+            background-color: var(--secondary-color);
         }
 
         &:after {
@@ -32,7 +31,7 @@
             height: 12px;
             width: 12px;
             border-radius: 50%;
-            background-color: whitesmoke;
+            background-color: var(--on-secondary-color);
             position: absolute;
             left: 13px;
 

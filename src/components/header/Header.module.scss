@@ -18,6 +18,11 @@
     & button {
         background-color: var(--primary-color);
         color: var(--on-primary-color);
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+            transform: translateY(-5%);
+        }
     }
 
     & label {

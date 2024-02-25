@@ -44,7 +44,17 @@
 // }
 
 [data-theme="light"] {
-    --bg-color: green;
+    //
+    --bg-color: #ebebeb;
+    --surface-color: #e3e3e3;
+    --primary-color: #b385f2;
+    --secondary-color: #07d9b2;
+
+    --on-bg-color: #121212;
+    --on-surface-color: #1d1d1d;
+    --on-primary-color: #38284c;
+    --on-secondary-color: #001110;
+    //
 
     // background-color: var(--bg-color-light);
     color: var(--fg-color-light);

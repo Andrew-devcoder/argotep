@@ -11,6 +11,8 @@
     background-color: var(--surface-color);
     color: var(--on-surface-color);
     border-radius: 8px;
+
+    filter: drop-shadow(2px 2px 3px #0e0e0e);
 }
 
 .buttonAddRow {
@@ -23,7 +25,7 @@
     transition: all 0.4s ease-in-out;
 
     &:hover {
-        scale: 1.1;
+        transform: translateY(-5%);
     }
 }
 
