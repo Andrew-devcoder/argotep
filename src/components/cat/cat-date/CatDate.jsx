@@ -3,6 +3,8 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
+import style from './CatDate.module.scss'
+
 const CateDate = ({ row, onBlur }) => {
 	const [selectedDate, setSelectedDate] = useState(new Date())
 
@@ -35,6 +37,7 @@ const CateDate = ({ row, onBlur }) => {
 	return (
 		<>
 			<DatePicker
+				className={style.data}
 				dateFormat="dd/MM/yyyy"
 				closeOnScroll={true}
 				selected={selectedDate}
