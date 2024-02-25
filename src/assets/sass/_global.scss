@@ -1,11 +1,5 @@
 :root {
-    // --bg-color-dark: rgb(36, 36, 36);
-    // --fg-color-dark: rgb(245, 245, 245);
-
-    // --bg-color-light: rgb(245, 245, 245);
-    // --fg-color-light: rgb(36, 36, 36);
-
-    //
+    // colors
     --bg-color: #121212;
     --surface-color: #1d1d1d;
     --primary-color: #b385f2;
@@ -27,24 +21,8 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-// [data-theme="dark"] {
-//     background-color: var(--bg-color-dark);
-//     color: var(--fg-color-dark);
-//     transition: background-color 0.4s ease-in-out;
-
-//     & input,
-//     select {
-//         background-color: transparent;
-//         color: #ffffff;
-
-//         &::placeholder {
-//             color: #ffffff;
-//         }
-//     }
-// }
-
 [data-theme="light"] {
-    //
+    //colors
     --bg-color: #ebebeb;
     --surface-color: #e3e3e3;
     --primary-color: #b385f2;
@@ -56,35 +34,29 @@
     --on-secondary-color: #001110;
     //
 
-    // background-color: var(--bg-color-light);
-    color: var(--fg-color-light);
     transition: background-color 0.4s ease-in-out;
 
     & input,
     select {
-        color: var(--fg-color-light);
+        color: var(--on-surface-color);
         background-color: transparent;
 
         &:focus {
-            background-color: rgb(227, 227, 227) !important;
+            background-color: var(--surface-color) !important;
             outline: none;
         }
 
         &:hover {
-            background-color: rgb(227, 227, 227) !important;
+            background-color: var(--surface-color) !important;
         }
 
         &::placeholder {
-            color: var(--fg-color-light);
+            color: var(--on-surface-color);
         }
 
         &[type="checkbox"] {
             accent-color: rgb(245, 245, 245);
         }
-    }
-
-    & a {
-        color: rgb(28, 28, 28);
     }
 }
 
@@ -103,16 +75,8 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
-}
+    background-color: var(--surface-color);
+    color: var(--on-surface-color);
 
-input[type="checkbox"] {
-    margin: 0;
+    transition: all 0.4s ease-in-out;
 }
-
-//--token-e648baba-11c9-42df-a543-26efb8706df2: rgb(245, 245, 245);
-//--token-c78742e7-cf18-49e7-8a3c-add9639af794: rgb(28, 28, 28);
-//--token-8a5d4442-11ed-4062-84c6-84b5c54e5f88: rgb(124, 127, 130);
-//--token-0159c27f-f6f4-4486-ba95-8d90c224bc27: rgb(18, 18, 18);
-//--token-a48cc5f7-5f79-4224-836c-5df3af3a279a: rgb(36, 36, 36);
-//--token-5bade527-dc2a-4cd6-b76e-af47850eec96: rgb(43, 43, 43);

@@ -3,7 +3,7 @@ import { useRooms } from "../../../state/state"
 import { getCatFact } from "../../../services/cats/catfact.ninja"
 import { sendDataToServer } from "../../../services/data-server/dataServer"
 
-import style from './CatFact.module.scss'
+// import style from './CatFact.module.scss'
 
 const CatFact = ({ row }) => {
 	const [fact, setFact] = useState('')

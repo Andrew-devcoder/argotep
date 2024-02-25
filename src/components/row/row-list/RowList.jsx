@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NewRow } from "../new-row/NewRow";
 import { useDateToday, useRooms } from "../../../state/state";
 import { sendDataToServer } from "../../../services/data-server/dataServer"
@@ -38,9 +38,6 @@ const RowList = ({ rows, roomIndex }) => {
 					if (today) {
 						const prevDate = row.date;
 						const dateNow = formatDate(new Date())
-						// console.log(prevDate)
-						// console.log(dateNow)
-						// console.log(row.date)
 
 						if (prevDate == dateNow) {
 							console.log(true)

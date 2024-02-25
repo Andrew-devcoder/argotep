@@ -13,11 +13,6 @@
         },
         {
           "date": "2024-02-22",
-          "fact": "The cat appears to be the only domestic companion animal not mentioned in the Bible.",
-          "bgColor": "rgb(25, 91, 24, 1)"
-        },
-        {
-          "date": "2024-02-22",
           "fact": "Not every cat gets \\high\\\" from catnip. Whether or not a cat responds to it depends upon a recessive gene: no gene\"",
           "bgColor": "rgb(167, 1, 0, 1)"
         },
@@ -35,6 +30,21 @@
           "date": "2024-02-24",
           "bgColor": "rgb(96, 144, 29, 1)",
           "fact": "A cats field of vision is about 185 degrees."
+        },
+        {
+          "date": "2024-02-25",
+          "bgColor": "rgb(19, 249, 248, 1)",
+          "fact": "The strongest climber among the big cats, a leopard can carry prey twice its weight up a tree."
+        },
+        {
+          "date": "2024-02-25",
+          "bgColor": "rgb(203, 169, 146, 1)",
+          "fact": "A cat uses its whiskers for measuring distances.  The whiskers of a cat are capable of registering very small changes in air pressure."
+        },
+        {
+          "date": "2024-02-25",
+          "bgColor": "rgb(116, 165, 27, 1)",
+          "fact": "The group of words associated with cat (catt, cath, chat, katze) stem from the Latin catus, meaning domestic cat, as opposed to feles, or wild cat."
         }
       ]
     },
@@ -66,14 +76,6 @@
           "fact": "Cats have individual preferences for scratching surfaces and angles. Some are horizontal scratchers while others exercise their claws vertically."
         }
       ]
-    },
-    {
-      "nameRoom": "",
-      "rows": []
-    },
-    {
-      "nameRoom": "",
-      "rows": []
     },
     {
       "nameRoom": "",

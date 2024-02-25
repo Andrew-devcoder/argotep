@@ -22,7 +22,6 @@ const Header = () => {
 			<div className={style.wrapper}>
 				<div className={style.nav}>
 
-					{/* <button onClick={() => sendData()}>new room</button> */}
 					<button onClick={sendData}>new room</button>
 
 					<div>
