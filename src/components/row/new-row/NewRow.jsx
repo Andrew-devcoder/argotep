@@ -6,11 +6,10 @@ import { CatAge } from "../../cat/cat-age/CatAge"
 import { CateDate } from "../../cat/cat-date/CatDate"
 import { CatFact } from "../../cat/cat-fact/CatFact"
 import { sendDataToServer } from "../../../services/data-server/dataServer"
-
+import { generationColor } from "../../../services/generation-color/GenerationColor"
 import { RiDeleteBinLine } from "react-icons/ri";
 
 import style from './NewRow.module.scss'
-import { generationColor } from "../../../services/generation-color/GenerationColor"
 
 const NewRow = ({ row, index, newRowIndex }) => {
 	const { array, delRow } = useRooms()

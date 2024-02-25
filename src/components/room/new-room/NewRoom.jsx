@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRooms } from "../../../state/state"
 import { NameRoom } from "../name-room/NameRoom";
 import { RowList } from "../../row/row-list/RowList"
@@ -10,7 +10,7 @@ const NewRoom = ({ room, index }) => {
 	const { addRow, array, delRoom } = useRooms();
 	const roomIndexStr = index.toString()
 	const { rows } = room
-	const { header, buttonDel, buttonAddRow } = style
+	const { header, buttonDelRoom, buttonAddRow } = style
 
 	const remove = async () => {
 		await delRoom(index)
@@ -26,14 +26,17 @@ const NewRoom = ({ room, index }) => {
 
 	return (
 		<>
-			<header className={header}>
+			<header
+				className={header}
+
+			>
 				<NameRoom
 					room={room}
 					onBlur={handleBlur}
 				/>
 
 				<button
-					className={buttonDel}
+					className={buttonDelRoom}
 					onClick={() => remove(index)}
 				>
 					delete room

@@ -1,9 +1,21 @@
 :root {
-    --bg-color-dark: rgb(36, 36, 36);
-    --fg-color-dark: rgb(245, 245, 245);
+    // --bg-color-dark: rgb(36, 36, 36);
+    // --fg-color-dark: rgb(245, 245, 245);
 
-    --bg-color-light: rgb(245, 245, 245);
-    --fg-color-light: rgb(36, 36, 36);
+    // --bg-color-light: rgb(245, 245, 245);
+    // --fg-color-light: rgb(36, 36, 36);
+
+    //
+    --bg-color: #121212;
+    --surface-color: #1d1d1d;
+    --primary-color: #b385f2;
+    --secondary-color: #07d9b2;
+
+    --on-bg-color: #ebebeb;
+    --on-surface-color: #e3e3e3;
+    --on-primary-color: #38284c;
+    --on-secondary-color: #001110;
+    //
 
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -32,7 +44,9 @@
 // }
 
 [data-theme="light"] {
-    background-color: var(--bg-color-light);
+    --bg-color: green;
+
+    // background-color: var(--bg-color-light);
     color: var(--fg-color-light);
     transition: background-color 0.4s ease-in-out;
 

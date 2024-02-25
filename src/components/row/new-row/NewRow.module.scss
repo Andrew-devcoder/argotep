@@ -1,6 +1,9 @@
 .wrapper {
-    padding: 5px 10px;
+    padding: 8px 16px;
     display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
 
     & p {

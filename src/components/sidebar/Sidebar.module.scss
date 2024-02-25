@@ -1,9 +1,10 @@
 .layout {
     width: 100%;
     height: 100%;
-    background-color: rgb(43, 43, 43);
+    background-color: var(--surface-color);
+    color: var(--on-surface-color);
 
-    filter: drop-shadow(5px 0 10px rgb(28, 28, 28));
+    filter: drop-shadow(5px 0 10px #0e0e0e);
 }
 
 .wrapper {
@@ -15,6 +16,7 @@
     top: 10px;
     right: 10px;
     background-color: transparent;
+    color: var(--on-surface-color);
     transition: all 0.4s ease;
 
     &::after {

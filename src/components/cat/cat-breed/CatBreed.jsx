@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import style from './CatBreed.module.scss'
 import { useTheme } from '../../../state/state'
+import style from './CatBreed.module.scss'
 
 const CatBreed = ({ row, onBlur }) => {
 	const [value, setValue] = useState('')

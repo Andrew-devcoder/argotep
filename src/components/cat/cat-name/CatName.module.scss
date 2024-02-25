@@ -1,9 +1,9 @@
 .inputName {
-    // max-width: 50px;
     border-color: transparent;
     background-color: transparent;
     border-radius: 2px;
     padding: 4px;
+    color: var(--on-surface-color);
 
     transition: all 0.4s ease;
 
@@ -13,5 +13,16 @@
             rgb(133, 133, 133)
         );
         background-color: rgb(59, 59, 59);
+    }
+
+    &:focus,
+    :focus-visible {
+        background-color: #fff;
+        color: #121212;
+    }
+
+    &::placeholder {
+        color: var(--on-surface-color);
+        opacity: 0.9;
     }
 }

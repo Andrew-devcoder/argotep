@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { SidebarList } from './sidebar-list/SidebarList'
+import { useTheme } from '../../state/state'
 
 import style from './Sidebar.module.scss'
-import { useTheme } from '../../state/state'
 
 const Sidebar = ({ onToggleSidebar }) => {
 	const [toggleSideBar, setToggleSideBar] = useState(false)

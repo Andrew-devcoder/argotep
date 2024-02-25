@@ -15,7 +15,13 @@
     padding: 20px;
     margin: 0 auto;
 
+    & button {
+        background-color: var(--primary-color);
+        color: var(--on-primary-color);
+    }
+
     & label {
         padding: 0 10px;
+        color: var(--on-bg-color);
     }
 }
