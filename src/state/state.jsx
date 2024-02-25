@@ -3,12 +3,24 @@ import { create } from 'zustand';
 export const useDateToday = create((set) => ({
 	today: false,
 
-	setChecked: () => {
+	setCheckedDate: () => {
 		set(() => ({ today: new Date() }))
 	},
 
-	setDisabled: () => {
+	setDisabledDate: () => {
 		set(() => ({ today: false }))
+	},
+}));
+
+export const useKittens = create((set) => ({
+	kittens: false,
+
+	setCheckedKittens: () => {
+		set(() => ({ kittens: true }))
+	},
+
+	setDisabledKittens: () => {
+		set(() => ({ kittens: false }))
 	},
 }));
 

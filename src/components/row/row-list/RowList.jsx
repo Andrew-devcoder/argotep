@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NewRow } from "../new-row/NewRow";
-import { useDateToday, useRooms } from "../../../state/state";
+import { useDateToday, useKittens, useRooms } from "../../../state/state";
 import { sendDataToServer } from "../../../services/data-server/dataServer"
 
 import style from './RowList.module.scss'
@@ -8,6 +8,7 @@ import style from './RowList.module.scss'
 const RowList = ({ rows, roomIndex }) => {
 	const { array } = useRooms()
 	const { today } = useDateToday()
+	const { kittens } = useKittens()
 
 	useEffect(() => {
 		sendDataToServer(array);
@@ -40,6 +41,23 @@ const RowList = ({ rows, roomIndex }) => {
 						const dateNow = formatDate(new Date())
 
 						if (prevDate == dateNow) {
+							console.log(true)
+							return true
+						} else {
+							console.log(false)
+							return false
+						}
+
+					}
+					//  проблема в тому що коли today checked то при додаванні ного row він не відображаться але додається 
+
+					return true;
+
+				}).filter((row) => {
+					if (kittens) {
+						const prevAge = row.age;
+
+						if (prevAge <= 2.0) {
 							console.log(true)
 							return true
 						} else {

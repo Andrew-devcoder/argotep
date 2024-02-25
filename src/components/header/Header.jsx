@@ -1,12 +1,13 @@
 import { sendDataToServer } from '../../services/data-server/dataServer';
-import { useDateToday, useRooms, useTheme } from '../../state/state';
+import { useDateToday, useKittens, useRooms } from '../../state/state';
 import { ToggleTheme } from '../toggle-theme/ToggleTheme';
 
 import style from './Header.module.scss'
 
 const Header = () => {
 	const { addNewRoom } = useRooms()
-	const { today, setChecked, setDisabled } = useDateToday()
+	const { today, setCheckedDate, setDisabledDate } = useDateToday()
+	const { kittens, setCheckedKittens, setDisabledKittens } = useKittens()
 
 	const sendData = async () => {
 		await addNewRoom()
@@ -30,14 +31,22 @@ const Header = () => {
 							id='today'
 							name='today'
 							checked={today}
-							onChange={() => (today ? setDisabled() : setChecked())}
+							onChange={() => (today ? setDisabledDate() : setCheckedDate())}
 						>
 						</input>
 						<label htmlFor="today">today</label>
 					</div>
 
 					<div>
-						<input type='checkbox' id='kittens' name='kittens'></input>
+						<input
+							type='checkbox'
+							id='kittens'
+							name='kittens'
+							checked={kittens}
+							onChange={() => (kittens ? setDisabledKittens() : setCheckedKittens())}
+						>
+
+						</input>
 						<label htmlFor="kittens">kittens</label>
 					</div>
 
