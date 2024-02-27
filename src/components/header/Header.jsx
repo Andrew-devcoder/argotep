@@ -19,43 +19,41 @@ const Header = () => {
 	}
 
 	return (
-		<>
-			<div className={style.wrapper}>
-				<div className={style.nav}>
+		<div className={style.wrapper}>
+			<div className={style.nav}>
 
-					<button onClick={sendData}>new room</button>
+				<button onClick={sendData}>new room</button>
 
-					<div>
-						<input
-							type='checkbox'
-							id='today'
-							name='today'
-							checked={today}
-							onChange={() => (today ? setDisabledDate() : setCheckedDate())}
-						>
-						</input>
-						<label htmlFor="today">today</label>
-					</div>
-
-					<div>
-						<input
-							type='checkbox'
-							id='kittens'
-							name='kittens'
-							checked={kittens}
-							onChange={() => (kittens ? setDisabledKittens() : setCheckedKittens())}
-						>
-
-						</input>
-						<label htmlFor="kittens">kittens</label>
-					</div>
-
-					<ToggleTheme />
-
+				<div>
+					<input
+						type='checkbox'
+						id='today'
+						name='today'
+						checked={today}
+						onChange={() => (today ? setDisabledDate() : setCheckedDate())}
+					>
+					</input>
+					<label htmlFor="today">today</label>
 				</div>
 
-			</div >
-		</>
+				<div>
+					<input
+						type='checkbox'
+						id='kittens'
+						name='kittens'
+						checked={kittens}
+						onChange={() => (kittens ? setDisabledKittens() : setCheckedKittens())}
+					>
+
+					</input>
+					<label htmlFor="kittens">kittens</label>
+				</div>
+
+				<ToggleTheme />
+
+			</div>
+
+		</div >
 	)
 }
 

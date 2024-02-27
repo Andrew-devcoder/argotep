@@ -40,13 +40,7 @@ const RowList = ({ rows, roomIndex }) => {
 						const prevDate = row.date;
 						const dateNow = formatDate(new Date())
 
-						if (prevDate == dateNow) {
-							console.log(true)
-							return true
-						} else {
-							console.log(false)
-							return false
-						}
+						return prevDate == dateNow
 
 					}
 					//  проблема в тому що коли today checked то при додаванні ного row він не відображаться але додається 

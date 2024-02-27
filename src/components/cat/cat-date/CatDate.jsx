@@ -21,10 +21,12 @@ const CateDate = ({ row, onBlur }) => {
 	}, []);
 
 	const handleDateChange = (date) => {
-		setSelectedDate(date);
-		const formattedDate = formatDate(date);
-		row.date = formattedDate;
-		onBlur();
+		if (date) {
+			setSelectedDate(date);
+			const formattedDate = formatDate(date);
+			row.date = formattedDate;
+			onBlur();
+		}
 	};
 
 	const formatDate = (date) => {
@@ -33,6 +35,8 @@ const CateDate = ({ row, onBlur }) => {
 		const day = date.getDate().toString().padStart(2, '0');
 		return `${year}-${month}-${day}`;
 	};
+
+	// провертка на null
 
 	return (
 		<>

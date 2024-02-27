@@ -26,10 +26,10 @@ const NewRow = ({ row, index, newRowIndex }) => {
 			const color = row.bgColor
 			const colorForDark = color.slice(0, -2) + "0.6)";
 			setNewColor(colorForDark)
-			console.log('dark now ', colorForDark);
+			// console.log('dark now ', colorForDark);
 		} else {
 			const colorForDark = row.bgColor.replace(/(\d+(\.\d+)?)\s*$/, "2");
-			console.log('change theme to ligth', colorForDark)
+			// console.log('change theme to ligth', colorForDark)
 		}
 
 	}, [])

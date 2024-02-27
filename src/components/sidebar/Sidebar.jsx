@@ -14,16 +14,14 @@ const Sidebar = ({ onToggleSidebar }) => {
 	}
 
 	return (
-		<>
-			<div className={style.layout} data-theme={theme}>
-				<div className={style.wrapper}>
+		<div className={style.layout} data-theme={theme}>
+			<div className={style.wrapper}>
 
-					<button className={`${style.toggleButtonOpen} ${toggleSideBar ? style.sidebarOpen : ''}`} onClick={handleButtonClick} />
+				<button className={`${style.toggleButtonOpen} ${toggleSideBar ? style.sidebarOpen : ''}`} onClick={handleButtonClick} />
 
-					<SidebarList toggleSideBar={toggleSideBar} />
-				</div>
+				<SidebarList toggleSideBar={toggleSideBar} />
 			</div>
-		</>
+		</div>
 	)
 }
 

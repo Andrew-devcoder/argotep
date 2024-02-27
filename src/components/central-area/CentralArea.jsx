@@ -32,15 +32,13 @@ const CentralArea = () => {
 	}, [])
 
 	return (
-		<>
-			<div
-				data-theme={theme}
-				className={style.container}
-			>
-				<Header />
-				<RoomList />
-			</div>
-		</>
+		<div
+			data-theme={theme}
+			className={style.container}
+		>
+			<Header />
+			<RoomList />
+		</div>
 	)
 }
 

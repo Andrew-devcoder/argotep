@@ -3,25 +3,22 @@ import { SidebarListItem } from "./sidebar-list-item/SidebarListItem";
 
 import style from './SidebarList.module.scss'
 
+// remove to state {toggleSideBar} -> zustand
+
+const arrayList = [
+	{ label: 'text1' },
+	{ label: 'text1' },
+	{ label: 'text1' },
+]
+
 const SidebarList = ({ toggleSideBar }) => {
-
-
-	const arrayList = [
-		{ icon: <CiStar size={'30px'} />, label: 'text1' },
-		{ icon: <CiStar size={'30px'} />, label: 'text1' },
-		{ icon: <CiStar size={'30px'} />, label: 'text1' },
-	]
-
-
+	//  edit 
 	return (
-		<>
-			<div className={style.wrapper}>
-				{arrayList.map((item, index) => (
-					<SidebarListItem key={index} icon={item.icon} label={!toggleSideBar && item.label} />
-				))}
-			</div>
-
-		</>
+		<div className={style.wrapper}>
+			{arrayList.map((item, index) => (
+				<SidebarListItem key={index} label={!toggleSideBar && item.label} />
+			))}
+		</div>
 	)
 }
 

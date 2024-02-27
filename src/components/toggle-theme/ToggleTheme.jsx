@@ -11,27 +11,31 @@ const ToggleTheme = () => {
 		} else {
 			setIsDark()
 		}
+
+		// useTheme.setState((state) => {
+		// 	state.theme === 'light' ? state.theme = 'dark' : state.theme = 'light'
+		// 	console.log(theme)
+		// 	return state
+		// })
 	}
 
 	return (
-		<>
-			<div className={container}>
-				<input
-					className={input}
-					type="checkbox"
-					name="theme"
-					id="theme"
-					onChange={handleChangeMode}
-					checked={theme === 'dark'}
-				/>
-				<label htmlFor="check">
-					{theme == 'dark' ?
-						'dark mode' :
-						'ligth mode'
-					}
-				</label>
-			</div>
-		</>
+		<div className={container}>
+			<input
+				className={input}
+				type="checkbox"
+				name="theme"
+				id="theme"
+				onChange={handleChangeMode}
+				checked={theme === 'dark'}
+			/>
+			<label htmlFor="check">
+				{theme == 'dark' ?
+					'dark mode' :
+					'ligth mode'
+				}
+			</label>
+		</div>
 	)
 }
 
