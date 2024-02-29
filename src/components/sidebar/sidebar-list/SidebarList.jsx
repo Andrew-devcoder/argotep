@@ -5,6 +5,9 @@ import style from './SidebarList.module.scss'
 
 // remove to state {toggleSideBar} -> zustand
 
+// я згадав чому спочатку вирішив додати іконки в масив з об'єктами 
+// тому що в меню вони можуть бути різними  
+
 const arrayList = [
 	{ label: 'text1' },
 	{ label: 'text1' },

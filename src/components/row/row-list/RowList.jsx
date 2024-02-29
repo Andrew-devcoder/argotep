@@ -60,7 +60,6 @@ const RowList = ({ rows, roomIndex }) => {
 						}
 
 					}
-					//  проблема в тому що коли today checked то при додаванні ного row він не відображаться але додається 
 
 					return true;
 
